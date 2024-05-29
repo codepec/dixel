@@ -22,7 +22,7 @@
   "name": "dixel",
   "short_name": "dixel",
   "start_url": "/",
-  "scope": "https://codepec.github.io/dixel/",
+  "scope": "/",
   "description": "Dixel - Size it right",
   "id": "/?homescreen=1",
   "categories": [
