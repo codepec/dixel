@@ -30,20 +30,20 @@ To run Dixel locally, follow these steps:
 
 ## Usage
 
-    1. Select Image Size: Choose a predefined size or select "Benutzerdefiniert" to enter custom dimensions.
-    2. Upload Images: Click to upload images or drag and drop them into the designated area.
-    3. Resize and Download: The images will be resized based on your selection, and you can download them directly.
+   1. **Select Image Size:** Choose a predefined size or select "Benutzerdefiniert" to enter custom dimensions.
+   2. **Upload Images:** Click to upload images or drag and drop them into the designated area.
+   3. **Resize and Download:** The images will be resized based on your selection, and you can download them directly.
 
 ## Contributing
 
 We welcome contributions to enhance Dixel. To contribute:
 
-    1. Fork the repository.
-    2. Create a new branch (git checkout -b feature/YourFeature).
-    3. Make your changes.
-    4. Commit your changes (git commit -m 'Add some feature').
-    5. Push to the branch (git push origin feature/YourFeature).
-    6. Open a pull request.
+   1. Fork the repository.
+   2. Create a new branch (git checkout -b feature/YourFeature).
+   3. Make your changes.
+   4. Commit your changes (git commit -m 'Add some feature').
+   5. Push to the branch (git push origin feature/YourFeature).
+   6. Open a pull request.
 
 ## License
 
