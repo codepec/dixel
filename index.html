@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dixel by codepec</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="header">
+        <h1>Dixel - Size it right</h1>
+        <div>
+          <img class="icon" src="icon.png" alt="logo">
+        </div>
+        <p>by codepec</p>
+    </div>
+
+    <div>
+        <h2>Bildgröße wählen</h2>
+        <div class="radio-group">
+            <input type="radio" id="small" name="size" value="small">
+            <label for="small">Small</label>
+            <input type="radio" id="medium" name="size" value="medium">
+            <label for="medium">Medium</label>
+            <input type="radio" id="large" name="size" value="large" checked>
+            <label for="large">Large</label>
+            <input type="radio" id="xlarge" name="size" value="xlarge">
+            <label for="xlarge">XXL</label>
+            <input type="radio" id="mobile" name="size" value="mobile">
+            <label for="mobile">Mobile</label>
+            <br>
+            <br>
+            <input type="radio" id="custom" name="size" value="custom">
+            <label for="custom">Benutzerdefiniert</label>
+            <div class="custom-size-container">
+              <input type="text" id="width" name="width" placeholder="Breite in Pixel">
+              <input type="text" id="height" name="height" placeholder="Höhe in Pixel">
+            </div>
+        </div>
+
+        <input type="file" id="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)">
+
+        <div id="drop-area" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);" ondragleave="dragLeaveHandler(event);">
+            <div>
+                <h2>Bilder hier ablegen</h2><br> Drag and Drop
+            </div>
+        </div>
+
+        <div id="progress-container" style="display: none;">
+            <div id="progress-bar"></div>
+        </div>
+
+        <div>
+            <h2>Verkleinerte Bilder</h2>
+            <div id="image-container"></div>
+        </div>
+
+        <a id="downloadLink" style="display: none"></a> <!-- Versteckter Link zum Herunterladen -->
+
+        <footer>copyright by codepec</footer>
+
+        <script src="script.js"></script>
+    </div>
+</body>
+</html>

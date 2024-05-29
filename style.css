@@ -1,0 +1,207 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    background-color: #dfdfdf;
+  }
+  
+  h1 {
+    color: #333;
+    margin-bottom: 5px;
+  }
+
+  .header {
+    margin-bottom: 100px;
+    color: #aeaeae;
+
+  }
+  
+  h2 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #777;
+  }
+  
+  label {
+    margin-right: 10px;
+  }
+
+
+  .radio-group {
+
+    margin-bottom: 20px;
+
+  }
+  
+  .radio-group input[type="radio"] {
+    display: none;
+  }
+  
+  .radio-group input[type="radio"] + label {
+    cursor: pointer;
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #444;
+    margin-right: 10px;
+    background-color: #ffffff;
+  }
+  
+  .radio-group input[type="radio"]:checked + label {
+    background-color: #5c96f5;
+    color: #fff;
+  }
+  
+input[type="radio"] {
+  display: none;
+}
+input[type="radio"] + label {
+  cursor: pointer;
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #444;
+  display: inline-block; /* Fügt diese Regel hinzu */
+  margin-right: 10px; /* Optional: Fügt Platz zwischen den Elementen hinzu */
+}
+  
+  input[type="radio"]:checked + label {
+    background-color: #5c96f5;
+    color: #fff;
+  }
+  
+  #drop-area {
+    border: 2px dashed #ccc;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 30px auto; /* Zentriert das Element horizontal */
+    background-color: #fff;
+    transition: border 0.3s ease;
+    max-width: 300px; /* weniger breit */
+    max-height: 400px; /* mehr hoch */
+    display: flex;
+    align-items: center; /* Zentriert das Element vertikal */
+    justify-content: center; /* Zentriert das Element horizontal */
+  }
+  
+  #drop-area.drag_over {
+    border-color: #5c96f5;
+  }
+  
+  .button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #5c96f5;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #3060b5;
+  }
+
+  footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+
+    color: #7c7c7c;
+    text-align: center;
+    margin-top: 30px;
+    padding: 10px 0;
+  }
+
+  .icon{
+    border-radius: 5px;
+    border: 1px solid black;
+    box-shadow:1px 1px 5px 1px #5c96f5;
+  }
+
+  #progress-container {
+    width: 100%;
+    height: 20px;
+    background-color: #f2f2f2;
+    display: none;
+  }
+  
+  #progress-bar {
+    width: 0%;
+    height: 100%;
+    background-color: #7cd27f;
+  }
+
+
+  @media screen and (max-width: 480px) {
+    body {
+      font-size: 16px; /* Verkleinert die Schriftgröße insgesamt */
+    }
+  
+    h1 {
+      font-size: 24px; /* Größere Überschrift auf der Seite */
+    }
+  
+    .header {
+      margin-bottom: 50px; /* Reduziert den Abstand oben */
+    }
+  
+    h2 {
+      font-size: 16px; /* Etwas kleinere Überschrift */
+    }
+  
+    .radio-group input[type="radio"] + label {
+      padding: 5px 10px; /* Verkleinert die Schaltflächen */
+    }
+  
+    .button {
+      padding: 8px 16px; /* Verkleinert die Schaltflächen */
+    }
+  
+    #drop-area {
+      padding: 20px; /* Reduziert die Innenpolsterung */
+      margin: 20px auto; /* Zentriert das Element horizontal */
+      max-width: 250px; /* Weniger breit auf kleinen Bildschirmen */
+      max-height: 300px; 
+    }
+  }
+
+
+
+/* Custom size inputs */
+.radio-group .custom-size-container {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the custom size container contents */
+  flex-wrap: wrap;
+  width: 100%; /* Ensure it takes full width for centering */
+}
+
+.radio-group .custom-size-container input[type="text"] {
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  flex: 1;
+  max-width: fit-content;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.radio-group .custom-size-container input[type="text"]:focus {
+  outline: none;
+  border-color: #4CAF50;
+}
+
+.radio-group .custom-size-container button {
+  margin: 5px 0;
+  padding: 10px 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.radio-group .custom-size-container button:hover {
+  background-color: #45a049;
+}
