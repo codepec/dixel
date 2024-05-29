@@ -8,8 +8,16 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
+
+    <div class="language">
+    <label for="languageSelect">Language: </label>
+    <select id="languageSelect" onchange="changeLanguage()">
+        <option value="en">English</option>
+        <option value="de">German</option>
+    </select>
+    </div>
     <div class="header">
-        <h1>Dixel - Size it right</h1>
+        <h1 id="title">Dixel - Size it right</h1>
         <div>
           <img class="icon" src="icon.png" alt="logo">
         </div>
@@ -17,25 +25,27 @@
     </div>
 
     <div>
-        <h2>Bildgröße wählen</h2>
+
+
+        <h2 id="chooseSize">Choose Image Size</h2>
         <div class="radio-group">
             <input type="radio" id="small" name="size" value="small">
-            <label for="small">Small</label>
+            <label for="small" id="labelSmall">Small</label>
             <input type="radio" id="medium" name="size" value="medium">
-            <label for="medium">Medium</label>
+            <label for="medium" id="labelMedium">Medium</label>
             <input type="radio" id="large" name="size" value="large" checked>
-            <label for="large">Large</label>
+            <label for="large" id="labelLarge">Large</label>
             <input type="radio" id="xlarge" name="size" value="xlarge">
-            <label for="xlarge">XXL</label>
+            <label for="xlarge" id="labelXlarge">XXL</label>
             <input type="radio" id="mobile" name="size" value="mobile">
-            <label for="mobile">Mobile</label>
+            <label for="mobile" id="labelMobile">Mobile</label>
             <br>
             <br>
             <input type="radio" id="custom" name="size" value="custom">
-            <label for="custom">Benutzerdefiniert</label>
+            <label for="custom" id="labelCustom">Custom</label>
             <div class="custom-size-container">
-              <input type="text" id="width" name="width" placeholder="Breite in Pixel">
-              <input type="text" id="height" name="height" placeholder="Höhe in Pixel">
+              <input type="text" id="width" name="width" placeholder="Width in pixels">
+              <input type="text" id="height" name="height" placeholder="Height in pixels">
             </div>
         </div>
 
@@ -43,7 +53,7 @@
 
         <div id="drop-area" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);" ondragleave="dragLeaveHandler(event);">
             <div>
-                <h2>Bilder hier ablegen</h2><br> Drag and Drop
+                <h2 id="dropAreaText">Drop images here</h2><br> Drag and Drop
             </div>
         </div>
 
@@ -52,15 +62,64 @@
         </div>
 
         <div>
-            <h2>Verkleinerte Bilder</h2>
+            <h2 id="resizedImages">Resized Images</h2>
             <div id="image-container"></div>
         </div>
 
-        <a id="downloadLink" style="display: none"></a> <!-- Versteckter Link zum Herunterladen -->
+        <a id="downloadLink" style="display: none"></a> <!-- Hidden download link -->
 
         <footer>copyright by codepec</footer>
 
         <script src="script.js"></script>
+
+        <script>
+          const translations = {
+            en: {
+              title: "Dixel - Size it right",
+              chooseSize: "Choose Image Size",
+              labelSmall: "Small",
+              labelMedium: "Medium",
+              labelLarge: "Large",
+              labelXlarge: "XXL",
+              labelMobile: "Mobile",
+              labelCustom: "Custom",
+              widthPlaceholder: "Width in pixels",
+              heightPlaceholder: "Height in pixels",
+              dropAreaText: "Drop images here",
+              resizedImages: "Resized Images"
+            },
+            de: {
+              title: "Dixel - Size it right",
+              chooseSize: "Bildgröße wählen",
+              labelSmall: "Klein",
+              labelMedium: "Mittel",
+              labelLarge: "Groß",
+              labelXlarge: "XXL",
+              labelMobile: "Mobil",
+              labelCustom: "Benutzerdefiniert",
+              widthPlaceholder: "Breite in Pixel",
+              heightPlaceholder: "Höhe in Pixel",
+              dropAreaText: "Bilder hier ablegen",
+              resizedImages: "Verkleinerte Bilder"
+            }
+          };
+
+          function changeLanguage() {
+            const language = document.getElementById("languageSelect").value;
+            document.getElementById("title").textContent = translations[language].title;
+            document.getElementById("chooseSize").textContent = translations[language].chooseSize;
+            document.getElementById("labelSmall").textContent = translations[language].labelSmall;
+            document.getElementById("labelMedium").textContent = translations[language].labelMedium;
+            document.getElementById("labelLarge").textContent = translations[language].labelLarge;
+            document.getElementById("labelXlarge").textContent = translations[language].labelXlarge;
+            document.getElementById("labelMobile").textContent = translations[language].labelMobile;
+            document.getElementById("labelCustom").textContent = translations[language].labelCustom;
+            document.getElementById("width").placeholder = translations[language].widthPlaceholder;
+            document.getElementById("height").placeholder = translations[language].heightPlaceholder;
+            document.getElementById("dropAreaText").textContent = translations[language].dropAreaText;
+            document.getElementById("resizedImages").textContent = translations[language].resizedImages;
+          }
+        </script>
     </div>
 </body>
 </html>

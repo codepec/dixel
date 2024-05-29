@@ -15,6 +15,13 @@ body {
     color: #aeaeae;
 
   }
+
+  .language{
+    display: flex;
+    justify-content:end;
+
+
+  }
   
   h2 {
     margin-bottom: 10px;
@@ -61,8 +68,8 @@ input[type="radio"] + label {
   border: 1px solid #ccc;
   border-radius: 4px;
   color: #444;
-  display: inline-block; /* Fügt diese Regel hinzu */
-  margin-right: 10px; /* Optional: Fügt Platz zwischen den Elementen hinzu */
+  display: inline-block; 
+  margin-right: 10px; 
 }
   
   input[type="radio"]:checked + label {
@@ -74,14 +81,14 @@ input[type="radio"] + label {
     border: 2px dashed #ccc;
     border-radius: 20px;
     padding: 30px;
-    margin: 30px auto; /* Zentriert das Element horizontal */
+    margin: 30px auto; 
     background-color: #fff;
     transition: border 0.3s ease;
-    max-width: 300px; /* weniger breit */
-    max-height: 400px; /* mehr hoch */
+    max-width: 300px; 
+    max-height: 400px; 
     display: flex;
-    align-items: center; /* Zentriert das Element vertikal */
-    justify-content: center; /* Zentriert das Element horizontal */
+    align-items: center; 
+    justify-content: center; 
   }
   
   #drop-area.drag_over {
@@ -136,33 +143,33 @@ input[type="radio"] + label {
 
   @media screen and (max-width: 480px) {
     body {
-      font-size: 16px; /* Verkleinert die Schriftgröße insgesamt */
+      font-size: 16px; 
     }
   
     h1 {
-      font-size: 24px; /* Größere Überschrift auf der Seite */
+      font-size: 24px; 
     }
   
     .header {
-      margin-bottom: 50px; /* Reduziert den Abstand oben */
+      margin-bottom: 50px;
     }
   
     h2 {
-      font-size: 16px; /* Etwas kleinere Überschrift */
+      font-size: 16px; 
     }
   
     .radio-group input[type="radio"] + label {
-      padding: 5px 10px; /* Verkleinert die Schaltflächen */
+      padding: 5px 10px; 
     }
   
     .button {
-      padding: 8px 16px; /* Verkleinert die Schaltflächen */
+      padding: 8px 16px;
     }
   
     #drop-area {
-      padding: 20px; /* Reduziert die Innenpolsterung */
-      margin: 20px auto; /* Zentriert das Element horizontal */
-      max-width: 250px; /* Weniger breit auf kleinen Bildschirmen */
+      padding: 20px;
+      margin: 20px auto; 
+      max-width: 250px; 
       max-height: 300px; 
     }
   }
@@ -173,9 +180,9 @@ input[type="radio"] + label {
 .radio-group .custom-size-container {
   display: flex;
   align-items: center;
-  justify-content: center; /* Center the custom size container contents */
+  justify-content: center;
   flex-wrap: wrap;
-  width: 100%; /* Ensure it takes full width for centering */
+  width: 100%; 
 }
 
 .radio-group .custom-size-container input[type="text"] {
@@ -205,3 +212,4 @@ input[type="radio"] + label {
 .radio-group .custom-size-container button:hover {
   background-color: #45a049;
 }
+

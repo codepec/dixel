@@ -18,7 +18,7 @@ function dropHandler(event) {
   // Check if only image files are dropped
   for (let i = 0; i < event.dataTransfer.files.length; i++) {
     if (!event.dataTransfer.files[i].type.startsWith("image/")) {
-      alert("Nur Bilddateien sind zulässig!");
+      alert("Invalid");
       return;
     }
   }
@@ -40,7 +40,7 @@ function handleFiles(files) {
       customWidth <= 0 ||
       customHeight <= 0
     ) {
-      alert("Bitte geben Sie gültige Breiten- und Höhenwerte ein.");
+      alert("Invalid");
       return;
     }
   }
@@ -111,9 +111,7 @@ function handleFiles(files) {
         ctx.drawImage(img, 0, 0, newWidth, newHeight);
 
         const doneText = document.createElement("p");
-        doneText.appendChild(
-          document.createTextNode(file.name + " - 100% geladen")
-        );
+        doneText.appendChild(document.createTextNode(file.name + " - 100%"));
 
         const imageContainer = document.getElementById("image-container");
         imageContainer.appendChild(doneText);
