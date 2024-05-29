@@ -47,4 +47,4 @@ We welcome contributions to enhance Dixel. To contribute:
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](https://codepec.github.io/dixel/License.txt) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/codepec/dixel/blob/main/LICENSE.txt) file for details.
