@@ -21,30 +21,30 @@ To run Dixel locally, follow these steps:
 1. **Clone the Repository**
    ```bash
    git clone https://github.com/codepec/dixel.git
-   
+   ```
 2. Navigate to the Project Directory
-   cd dixel
+   `cd dixel`
 
 3. Open `index.html` in Your Browser
-  Simply open the `index.html` file in your preferred web browser to start using Dixel.
+   Simply open the `index.html` file in your preferred web browser to start using Dixel.
 
 ## Usage
 
-   1. **Select Image Size:** Choose a predefined size or select "Benutzerdefiniert" to enter custom dimensions.
-   2. **Upload Images:** Click to upload images or drag and drop them into the designated area.
-   3. **Resize and Download:** The images will be resized based on your selection, and you can download them directly.
+1.  **Select Image Size:** Choose a predefined size or select "Custom" to enter custom dimensions.
+2.  **Upload Images:** Click to upload images or drag and drop them into the designated area.
+3.  **Resize and Download:** The images will be resized based on your selection, and you can download them directly.
 
 ## Contributing
 
 We welcome contributions to enhance Dixel. To contribute:
 
-   1. Fork the repository.
-   2. Create a new branch (git checkout -b feature/YourFeature).
-   3. Make your changes.
-   4. Commit your changes (git commit -m 'Add some feature').
-   5. Push to the branch (git push origin feature/YourFeature).
-   6. Open a pull request.
+1.  Fork the repository.
+2.  Create a new branch (git checkout -b feature/YourFeature).
+3.  Make your changes.
+4.  Commit your changes (git commit -m 'Add some feature').
+5.  Push to the branch (git push origin feature/YourFeature).
+6.  Open a pull request.
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://codepec.github.io/dixel/License.txt) file for details.
