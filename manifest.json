@@ -21,9 +21,10 @@
   "lang": "en",
   "name": "dixel",
   "short_name": "dixel",
-  "start_url": ".",
+  "start_url": "/",
+  "scope": "/",
   "description": "Dixel - Size it right",
-  "id": "\"/?homescreen=1\"",
+  "id": "/?homescreen=1",
   "categories": [
     "business",
     "photo",
