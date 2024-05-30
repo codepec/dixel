@@ -1,7 +1,7 @@
 {
   "name": "dixel",
   "short_name": "dixel",
-  "start_url": "/index.html",
+  "start_url": "./index.html",
   "display": "standalone",
   "theme_color": "#79bb82",
   "background_color": "#019cd8",
