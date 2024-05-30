@@ -1,6 +1,6 @@
 if ("serviceWorker" in navigator) {
   // declaring scope manually
-  navigator.serviceWorker.register("/sw.js", { scope: "./" }).then(
+  navigator.serviceWorker.register("./sw.js", { scope: "./" }).then(
     (registration) => {
       console.log("Service worker registration succeeded:", registration);
     },

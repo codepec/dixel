@@ -7,7 +7,7 @@ importScripts(
 const CACHE = "my-site-cache-v1";
 
 // TODO: replace the following with the correct offline fallback page i.e.: const offlineFallbackPage = "offline.html";
-const offlineFallbackPage = "/pages/offline.html";
+const offlineFallbackPage = "./pages/offline.html";
 
 // Enable navigation preload if supported
 if (workbox.navigationPreload.isSupported()) {
