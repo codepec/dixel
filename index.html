@@ -19,22 +19,43 @@
 </head>
 <body>
 
-    <div class="language">
-    <label for="languageSelect">Language: </label>
-    <select id="languageSelect" onchange="changeLanguage()">
+  <nav class="navbar">
+    <div class="navbar-left">
+      <label for="languageSelect"></label>
+      <select id="languageSelect" onchange="changeLanguage()">
         <option value="en">English</option>
-        <option value="de">German</option>
-    </select>
+        <option value="de">Deutsch</option>
+      </select>
     </div>
-    <div class="header">
-        <h1 id="title">Dixel - Size it right</h1>
-        <div>
-          <img class="icon" src="./img/icon_ki.JPG" alt="logo">
-        </div>
-        <p>by codepec</p>
-    </div>
+    <div class="navbar-right">
+      <ul>
+        <li>
+         
+          <div class="darkmode-container">
+          <p class="margin-right">Dark Mode</p>
+          <input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()">
+          <label for="darkModeToggle"></label>
 
-    <div>
+          </div>
+        </li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="./pages/instructions.html">Get Started</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="blocker"></div>
+  
+  <div class="header">
+    <div class="logo-container">
+      <img class="icon" src="./img/icon_ki.JPG" alt="logo">
+      <h1 id="title">Dixel - Size it right</h1>
+
+    </div>
+    <p>by codepec</p>
+  </div>
+
+
 
 
         <h2 id="chooseSize">Choose Image Size</h2>
@@ -49,22 +70,30 @@
             <label for="xlarge" id="labelXlarge">XXL</label>
             <input type="radio" id="mobile" name="size" value="mobile">
             <label for="mobile" id="labelMobile">Mobile</label>
-            <br>
-            <br>
             <input type="radio" id="custom" name="size" value="custom">
             <label for="custom" id="labelCustom">Custom</label>
-            <div class="custom-size-container">
-              <input type="text" id="width" name="width" placeholder="Width in pixels">
-              <input type="text" id="height" name="height" placeholder="Height in pixels">
-            </div>
         </div>
 
-        <input type="file" id="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)">
+        <div class="customSize">
+          <div class="custom-size-container" id="customSizeContainer" style="display: none;">
+            <h2 id="manualInput">Manual Input</h2>  
+            <input type="text" id="width" name="width" placeholder="Width in pixels">
+              <input type="text" id="height" name="height" placeholder="Height in pixels">
+          </div>
+        </div>
 
-        <div id="drop-area" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);" ondragleave="dragLeaveHandler(event);" dropzone>
-            <div>
-                <h2 id="dropAreaText">Drop images here</h2><br> Drag and Drop
-            </div>
+        <div>
+
+          <h2 id="selectImages">Select Images</h2>  
+
+          <input type="file" id="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)">
+
+          <div id="drop-area" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);" ondragleave="dragLeaveHandler(event);" dropzone>
+              <div>
+                  <h2 id="dropAreaText">Drop images here</h2><br> Drag and Drop
+              </div>
+          </div>
+
         </div>
 
         <div id="progress-container" style="display: none;">
@@ -81,6 +110,7 @@
         <footer>copyright by codepec</footer>
 
         <script src="./js/script.js"></script>
+        <script src="./js/darkmode.js"></script>
         <script src="./js/main.js"></script>
 
 
@@ -91,6 +121,8 @@
             en: {
               title: "Dixel - Size it right",
               chooseSize: "Choose Image Size",
+              manualInput: "Manual Input",
+              selectImages: "Select Images",
               labelSmall: "Small",
               labelMedium: "Medium",
               labelLarge: "Large",
@@ -105,6 +137,8 @@
             de: {
               title: "Dixel - Size it right",
               chooseSize: "Bildgröße wählen",
+              manualInput: "Manuelle Eingabe",
+              selectImages: "Bilder auswählen",
               labelSmall: "Klein",
               labelMedium: "Mittel",
               labelLarge: "Groß",
@@ -122,6 +156,8 @@
             const language = document.getElementById("languageSelect").value;
             document.getElementById("title").textContent = translations[language].title;
             document.getElementById("chooseSize").textContent = translations[language].chooseSize;
+            document.getElementById("manualInput").textContent = translations[language].manualInput;
+            document.getElementById("selectImages").textContent = translations[language].selectImages;
             document.getElementById("labelSmall").textContent = translations[language].labelSmall;
             document.getElementById("labelMedium").textContent = translations[language].labelMedium;
             document.getElementById("labelLarge").textContent = translations[language].labelLarge;

@@ -1,186 +1,200 @@
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding: 20px;
-    background-color: #dfdfdf;
-  }
-  
-  h1 {
-    color: #333;
-    margin-bottom: 5px;
-  }
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
 
-  .header {
-    margin-bottom: 100px;
-    color: #aeaeae;
+h1 {
+  color: #333;
+  margin-bottom: 5px;
+}
 
-  }
+.header {
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1;
+}
 
-  .language{
-    display: flex;
-    justify-content:end;
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.icon {
+  width: 60px;
+  height: 60px;
+  margin-right: 20px;
+}
 
-  }
-  
-  h2 {
-    margin-bottom: 10px;
-    font-size: 18px;
-    color: #777;
-  }
-  
-  label {
-    margin-right: 10px;
-  }
+.header h1 {
+  font-size: 2em;
+  margin: 0;
+}
 
+.header p {
+  margin: 0;
+}
 
-  .radio-group {
+.language {
+  display: flex;
+  justify-content: end;
+}
 
-    margin-bottom: 20px;
+h2 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #777;
+}
 
-  }
-  
-  .radio-group input[type="radio"] {
-    display: none;
-  }
-  
-  .radio-group input[type="radio"] + label {
-    cursor: pointer;
-    padding: 8px 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    color: #444;
-    margin-right: 10px;
-    background-color: #ffffff;
-  }
-  
-  .radio-group input[type="radio"]:checked + label {
-    background-color: #5c96f5;
-    color: #fff;
-  }
-  
-input[type="radio"] {
+label {
+  margin-right: 10px;
+}
+
+.radio-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px; /* Füge etwas Abstand nach unten hinzu */
+}
+
+.radio-group input[type="radio"] {
   display: none;
 }
-input[type="radio"] + label {
+
+.radio-group label {
   cursor: pointer;
-  padding: 8px 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  color: #444;
-  display: inline-block; 
-  margin-right: 10px; 
+  padding: 12px 24px;
+  margin: 0 8px; /* Füge etwas Abstand zwischen den Optionen hinzu */
+  border: 2px solid #5c96f5; /* Ändere die Border-Farbe */
+  border-radius: 30px; /* Verwende eine abgerundete Border */
+  background-color: transparent; /* Mache den Hintergrund transparent */
+  color: #5c96f5;
+  transition: all 0.3s ease;
+  font-weight: bold; /* Betone die Schrift */
 }
-  
-  input[type="radio"]:checked + label {
-    background-color: #5c96f5;
-    color: #fff;
+
+/* Styling für ausgewählte Radio-Buttons */
+.radio-group input[type="radio"]:checked + label {
+  background-color: #5c96f5;
+  color: var(--text-color);;
+}
+
+.radio-group label:hover {
+  background-color: #5c97f53c;
+
+}
+
+
+
+#drop-area {
+  border: 2px dashed #ccc;
+  border-radius: 20px;
+  padding: 30px;
+  margin: 30px auto;
+  background-color: #ffffff;
+  transition: border 0.3s ease;
+  max-width: 300px;
+  max-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#drop-area.drag_over {
+  border-color: #5c96f5;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 10px;
+  background-color: #5c96f5;
+  color: var(--text-color);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #3060b5;
+}
+
+footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: #7c7c7c;
+  text-align: center;
+  margin-top: 30px;
+  padding: 10px 0;
+}
+
+.icon {
+  border-radius: 5px;
+  border: 1px solid rgb(88, 94, 96);
+  width: 50px;
+  height: 50px;
+  box-shadow: 0px 0px 10px 0px #5c96f5;
+  transform: scale(1.05);
+}
+
+#progress-container {
+  width: 100%;
+  height: 20px;
+  background-color: #f2f2f2;
+  display: none;
+}
+
+#progress-bar {
+  width: 0%;
+  height: 100%;
+  background-color: #7cd27f;
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    font-size: 16px;
   }
-  
-  #drop-area {
-    border: 2px dashed #ccc;
-    border-radius: 20px;
-    padding: 30px;
-    margin: 30px auto; 
-    background-color: #fff;
-    transition: border 0.3s ease;
-    max-width: 300px; 
-    max-height: 400px; 
-    display: flex;
-    align-items: center; 
-    justify-content: center; 
+
+  h1 {
+    font-size: 24px;
   }
-  
-  #drop-area.drag_over {
-    border-color: #5c96f5;
+
+
+  h2 {
+    font-size: 16px;
   }
-  
-  .button {
+
+  /* Zentrieren der Radio-Buttons und Labels */
+  .radio-group {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Anpassung der Breite und Abstände */
+  .radio-group input[type="radio"] + label {
     display: inline-block;
-    padding: 10px 20px;
-    margin-top: 10px;
-    background-color: #5c96f5;
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .button:hover {
-    background-color: #3060b5;
+    margin: 5px; /* Füge etwas Abstand zwischen den Optionen hinzu */
+    width: auto; /* Setze die Breite automatisch */
   }
 
-  footer {
-    left: 0;
-    bottom: 0;
-    width: 100%;
-
-    color: #7c7c7c;
-    text-align: center;
-    margin-top: 30px;
-    padding: 10px 0;
+  .button {
+    padding: 8px 16px;
   }
 
-  .icon {
-    border-radius: 5px;
-    border: 1px solid rgb(88, 94, 96);
-    width: 50px;
-    height: 50px;
-    box-shadow: 0px 0px 10px 0px #5c96f5; 
-    transform: scale(1.05); 
-
+  #drop-area {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 250px;
+    max-height: 300px;
+  }
 }
-
-
-
-  #progress-container {
-    width: 100%;
-    height: 20px;
-    background-color: #f2f2f2;
-    display: none;
-  }
-  
-  #progress-bar {
-    width: 0%;
-    height: 100%;
-    background-color: #7cd27f;
-  }
-
-
-  @media screen and (max-width: 480px) {
-    body {
-      font-size: 16px; 
-    }
-  
-    h1 {
-      font-size: 24px; 
-    }
-  
-    .header {
-      margin-bottom: 50px;
-    }
-  
-    h2 {
-      font-size: 16px; 
-    }
-  
-    .radio-group input[type="radio"] + label {
-      padding: 5px 10px; 
-    }
-  
-    .button {
-      padding: 8px 16px;
-    }
-  
-    #drop-area {
-      padding: 20px;
-      margin: 20px auto; 
-      max-width: 250px; 
-      max-height: 300px; 
-    }
-  }
-
-
 
 /* Custom size inputs */
 .radio-group .custom-size-container {
@@ -188,7 +202,7 @@ input[type="radio"] + label {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  width: 100%; 
+  width: 100%;
 }
 
 .radio-group .custom-size-container input[type="text"] {
@@ -209,7 +223,7 @@ input[type="radio"] + label {
   margin: 5px 0;
   padding: 10px 15px;
   background-color: #4CAF50;
-  color: white;
+  color: var(--text-color);
   border: none;
   cursor: pointer;
   border-radius: 4px;
@@ -218,4 +232,144 @@ input[type="radio"] + label {
 .radio-group .custom-size-container button:hover {
   background-color: #45a049;
 }
+
+/* Navbar styling */
+/* Navbar styling */
+.navbar {
+  background-color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 10px;
+  color: var(--text-color);
+}
+
+.navbar-left,
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-left label {
+  margin-right: 8px;
+}
+
+.language select {
+  padding: 6px;
+  border: none;
+  border-radius: 4px;
+}
+
+.navbar-right ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navbar-right ul li {
+  margin-left: 20px;
+}
+
+.navbar-right ul li a {
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 14px 16px;
+  display: block;
+}
+
+.navbar-right ul li a:hover {
+  background-color: #5c96f5;
+  border-radius: 30px;
+}
+
+.navbar-right ul li input[type="checkbox"] {
+  display: none;
+}
+
+.navbar-right ul li input[type="checkbox"] + label {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+  background-color: #888;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-right ul li input[type="checkbox"]:checked + label {
+  background-color: #4CAF50;
+}
+
+.navbar-right ul li input[type="checkbox"] + label::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 21px;
+  height: 21px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.navbar-right ul li input[type="checkbox"]:checked + label::after {
+  transform: translateX(25px);
+}
+
+.darkmode-container{
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+}
+
+.margin-right{
+  margin-right: 10px;
+}
+
+.blocker {
+  padding: 15px;
+  box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+}
+
+.customSize{
+  margin-bottom: 20px;
+}
+
+
+
+/* Light mode styles */
+:root {
+  --background-color: #cfcfcf;
+  --text-color: #333;
+  --header-background-color: #ffffff;
+  --header-text-color: #333;
+}
+
+/* Dark mode styles */
+.dark-mode {
+  --background-color: #333;
+  --text-color: #cfcfcf;
+  --header-background-color: rgb(103, 103, 103);
+  --header-text-color: #ffffff;
+}
+
+/* Apply styles based on the current mode */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Additional styles for elements */
+.navbar {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.header {
+  background-color: var(--header-background-color);
+  color: var(--header-text-color);
+}
+/* Add more styles as needed */
+
 

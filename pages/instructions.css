@@ -1,0 +1,68 @@
+/* instructions.css */
+
+/* Global styles */
+.instructions-container {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+  }
+  
+  /* Heading styles */
+  .instruction-heading,
+  .tip-heading,
+  .support-heading {
+    color: #007bff;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  /* Instruction steps */
+  .instruction-steps {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .instruction-step {
+    background-color: #b4c4d4;
+    color:#333;
+    border-radius: 30px;
+    margin: 0 10%;
+    margin-bottom: 10px;
+    padding:10px;
+  }
+  
+  .sub-steps {
+    list-style: none;
+    color:#007bff;
+  }
+  
+  .sub-step {
+    margin-bottom: 5px;
+  }
+  
+  /* Tips */
+  .tips-list {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .tip {
+    margin-bottom: 10px;
+  }
+  
+  /* Support info */
+  .support-link {
+    color: #007bff;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .instruction-heading {
+      font-size: 18px;
+    }
+  
+    .instruction-steps,
+    .tips-list {
+      font-size: 16px;
+    }
+  }
+  

@@ -111,7 +111,18 @@ function handleFiles(files) {
         ctx.drawImage(img, 0, 0, newWidth, newHeight);
 
         const doneText = document.createElement("p");
-        doneText.appendChild(document.createTextNode(file.name + " - 100%"));
+        doneText.appendChild(
+          document.createTextNode(
+            file.name +
+              " - " +
+              selectedSize +
+              " - " +
+              newWidth +
+              " x " +
+              newHeight +
+              " - 100%"
+          )
+        );
 
         const imageContainer = document.getElementById("image-container");
         imageContainer.appendChild(doneText);
@@ -131,3 +142,24 @@ function saveImage(dataUrl, fileName) {
   a.download = fileName;
   a.click();
 }
+
+// JavaScript
+const customRadio = document.getElementById("custom");
+const customSizeContainer = document.getElementById("customSizeContainer");
+const otherRadios = document.querySelectorAll(
+  'input[type="radio"]:not(#custom)'
+);
+
+customRadio.addEventListener("change", function () {
+  if (this.checked) {
+    customSizeContainer.style.display = "block";
+  } else {
+    customSizeContainer.style.display = "none";
+  }
+});
+
+otherRadios.forEach(function (radio) {
+  radio.addEventListener("change", function () {
+    customSizeContainer.style.display = "none";
+  });
+});

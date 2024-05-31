@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dixel by codepec</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="instructions.css">
+  <link rel="icon" href="favicon.ico" type="image">
+
+<!-- PNG icons for different sizes -->
+<link rel="icon" type="image/png" sizes="48x48" href="../assets/icons/icon-48x48.png">
+<link rel="icon" type="image/png" sizes="128x128" href="../assets/icons/icon-128x128.png">
+
+<!-- Apple Touch Icon -->
+<link rel="apple-touch-icon" sizes="192x192" href="../assets/icons/icon-192x192.png">
+
+  <link rel="manifest" href="manifest.json" />
+
+</head>
+<body>
+
+
+  <nav class="navbar">
+    <div class="navbar-left">
+      <label for="languageSelect"></label>
+      <select id="languageSelect">
+        <option value="en">English</option>
+        <option value="de">Deutsch</option>
+        <option value="de2">Deutsch2</option>
+      </select>
+    </div>
+    <div class="navbar-right">
+      <ul>
+        <li>
+         
+          <div class="darkmode-container">
+          <p class="margin-right">Dark Mode</p>
+          <input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()">
+          <label for="darkModeToggle"></label>
+
+          </div>
+        </li>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="./instructions.html">Get Started</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="blocker"></div>
+  
+  <div class="header">
+    <div class="logo-container">
+      <img class="icon" src="../img/icon_ki.JPG" alt="logo">
+      <h1 id="title">Dixel - Size it right</h1>
+    </div>
+    <p>by codepec</p>
+  </div>
+
+
+  <div class="instructions-container">
+
+
+
+<!-- Anweisungen auf Deutsch -->
+<div id="instructions-de" style="display: none;">
+
+  <h2 class="instruction-heading">So geht's:</h2>
+  <p class="instruction-intro">Möchten Sie Ihre Bilder verkleinern? Hier ist, wie es funktioniert:</p>
+  <ol class="instruction-steps">
+    <li class="instruction-step">Öffnen Sie die App oder die Webseite.</li>
+    <li class="instruction-step">Wählen Sie Ihre Größe: Klein oder Mittel.</li>
+    <li class="instruction-step">Fügen Sie Ihre Bilder hinzu:
+      <div class="sub-steps">
+        <div class="sub-step">Klicken Sie auf "Bilder auswählen" und wählen Sie Ihre Bilder aus.</div>
+        <div class="sub-step">Oder ziehen Sie sie einfach per Drag & Drop hinein.</div>
+      </div>
+    </li>
+    <li class="instruction-step">Warten Sie geduldig, bis alles verkleinert ist. Überprüfen Sie dann Ihren Download-Ordner.</li>
+  </ol>
+
+  <h2 class="tip-heading">Tipps:</h2>
+  <ul class="tips-list">
+    <li class="tip">Wählen Sie die Größe entsprechend Ihrem Bedarf: Klein für soziale Medien, Mittel für beste Qualität.</li>
+    <li class="tip">Stellen Sie sicher, dass Ihre Bilder im JPG- oder PNG-Format vorliegen, damit alles reibungslos funktioniert.</li>
+    <li class="tip">Seien Sie geduldig und unterbrechen Sie den Vorgang nicht. Warten Sie einfach, bis alles bereit ist.</li>
+    <li class="tip">Überprüfen Sie die Downloads, um sicherzustellen, dass sie passend sind. Falls nicht, versuchen Sie es einfach erneut.</li>
+  </ul>
+
+  <h2 class="support-heading">Support:</h2>
+  <p class="support-info">Bei Fragen oder Problemen können Sie uns gerne eine E-Mail schreiben: <a href="mailto:codepec.de@gmail.com" class="support-link">Schreib uns</a>. Wir sind hier, um zu helfen!</p>
+</div>
+
+
+<!-- Anweisungen auf Deutsch -->
+<div id="instructions-de2" style="display: none;">
+    <h2 class="instruction-heading">So geht's:</h2>
+    <p class="instruction-intro">Willst du deine Bilder verkleinern? Easy, folge diesen Schritten:</p>
+    <ol class="instruction-steps">
+      <li class="instruction-step">Öffne die App oder die Webseite.</li>
+      <li class="instruction-step">Wähle deine Größe: Klein oder Mittel.</li>
+      <li class="instruction-step">Bring deine Bilder rein:
+        <div class="sub-steps">
+          <div class="sub-step">Klick "Bilder auswählen" und wähl deine Bilder aus.</div>
+          <div class="sub-step">Oder zieh sie einfach per Drag & Drop rein.</div>
+        </div>
+      </li>
+      <li class="instruction-step">Warte chillig, bis alles verkleinert ist. Und check dein Download-Ordner.</li>
+    </ol>
+  
+    <h2 class="tip-heading">Tips:</h2>
+    <ul class="tips-list">
+      <li class="tip">Wähl die Größe nach deinem Style: Klein für Social Media, Mittel für Top-Qualität.</li>
+      <li class="tip">Check, dass deine Bilder JPG oder PNG sind, damit alles smooth läuft.</li>
+      <li class="tip">Hab Geduld und stör den Prozess nicht. Chill einfach, bis alles ready ist.</li>
+      <li class="tip">Check die Downloads, um sicherzustellen, dass sie passen. Falls nicht, einfach nochmal versuchen.</li>
+    </ul>
+  
+    <h2 class="support-heading">Support:</h2>
+    <p class="support-info">Bei Fragen oder Problemen: <a href="mailto:codepec.de@gmail.com" class="support-link">Schreib uns</a>. Wir sind hier, um zu helfen!</p>
+</div>
+
+  
+
+<!-- Instructions in German -->
+<div id="instructions-en">
+  <h2 class="instruction-heading">Here's How:</h2>
+  <p class="instruction-intro">Want to resize your images? Here's how it works:</p>
+  <ol class="instruction-steps">
+    <li class="instruction-step">Open the app or website.</li>
+    <li class="instruction-step">Choose your size: Small or Medium.</li>
+    <li class="instruction-step">Add your images:
+      <div class="sub-steps">
+        <div class="sub-step">Click "Select Images" and choose your images.</div>
+        <div class="sub-step">Or simply drag and drop them in.</div>
+      </div>
+    </li>
+    <li class="instruction-step">Wait patiently until everything is resized. Then, check your download folder.</li>
+  </ol>
+
+  <h2 class="tip-heading">Tips:</h2>
+  <ul class="tips-list">
+    <li class="tip">Choose the size according to your needs: Small for social media, Medium for best quality.</li>
+    <li class="tip">Make sure your images are in JPG or PNG format for smooth operation.</li>
+    <li class="tip">Be patient and don't interrupt the process. Just wait until everything is ready.</li>
+    <li class="tip">Check the downloads to ensure they fit. If not, simply try again.</li>
+  </ul>
+
+  <h2 class="support-heading">Support:</h2>
+  <p class="support-info">For questions or issues, feel free to send us an email: <a href="mailto:codepec.de@gmail.com" class="support-link">Contact Us</a>. We're here to help!</p>
+</div>
+
+</div>
+
+
+<footer>copyright by codepec</footer>
+
+  <script src="../js/darkmode.js"></script>
+  <script>
+    // JavaScript für die Sprachumschaltung
+    const languageSelect = document.getElementById("languageSelect");
+
+    languageSelect.addEventListener("change", function() {
+      const language = this.value;
+      if (language === "en") {
+        document.getElementById("instructions-de").style.display = "none";
+        document.getElementById("instructions-en").style.display = "block";
+        document.getElementById("instructions-de2").style.display = "none";
+      } else if (language === "de") {
+        document.getElementById("instructions-en").style.display = "none";
+        document.getElementById("instructions-de").style.display = "block";
+        document.getElementById("instructions-de2").style.display = "none";
+      } else if (language === "de2") {
+        document.getElementById("instructions-en").style.display = "none";
+        document.getElementById("instructions-de").style.display = "none";
+        document.getElementById("instructions-de2").style.display = "block";
+      }
+    });
+  </script>
+</body>
+</html>
