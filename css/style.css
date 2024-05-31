@@ -194,6 +194,11 @@ footer {
     max-width: 250px;
     max-height: 300px;
   }
+
+  .navbar{
+    flex-wrap: wrap;
+  }
+
 }
 
 /* Custom size inputs */

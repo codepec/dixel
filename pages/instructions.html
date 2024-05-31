@@ -15,7 +15,7 @@
 <!-- Apple Touch Icon -->
 <link rel="apple-touch-icon" sizes="192x192" href="../assets/icons/icon-192x192.png">
 
-  <link rel="manifest" href="manifest.json" />
+  <link rel="manifest" href="../manifest.json" />
 
 </head>
 <body>
@@ -27,7 +27,6 @@
       <select id="languageSelect">
         <option value="en">English</option>
         <option value="de">Deutsch</option>
-        <option value="de2">Deutsch2</option>
       </select>
     </div>
     <div class="navbar-right">
@@ -93,35 +92,6 @@
 </div>
 
 
-<!-- Anweisungen auf Deutsch -->
-<div id="instructions-de2" style="display: none;">
-    <h2 class="instruction-heading">So geht's:</h2>
-    <p class="instruction-intro">Willst du deine Bilder verkleinern? Easy, folge diesen Schritten:</p>
-    <ol class="instruction-steps">
-      <li class="instruction-step">Öffne die App oder die Webseite.</li>
-      <li class="instruction-step">Wähle deine Größe: Klein oder Mittel.</li>
-      <li class="instruction-step">Bring deine Bilder rein:
-        <div class="sub-steps">
-          <div class="sub-step">Klick "Bilder auswählen" und wähl deine Bilder aus.</div>
-          <div class="sub-step">Oder zieh sie einfach per Drag & Drop rein.</div>
-        </div>
-      </li>
-      <li class="instruction-step">Warte chillig, bis alles verkleinert ist. Und check dein Download-Ordner.</li>
-    </ol>
-  
-    <h2 class="tip-heading">Tips:</h2>
-    <ul class="tips-list">
-      <li class="tip">Wähl die Größe nach deinem Style: Klein für Social Media, Mittel für Top-Qualität.</li>
-      <li class="tip">Check, dass deine Bilder JPG oder PNG sind, damit alles smooth läuft.</li>
-      <li class="tip">Hab Geduld und stör den Prozess nicht. Chill einfach, bis alles ready ist.</li>
-      <li class="tip">Check die Downloads, um sicherzustellen, dass sie passen. Falls nicht, einfach nochmal versuchen.</li>
-    </ul>
-  
-    <h2 class="support-heading">Support:</h2>
-    <p class="support-info">Bei Fragen oder Problemen: <a href="mailto:codepec.de@gmail.com" class="support-link">Schreib uns</a>. Wir sind hier, um zu helfen!</p>
-</div>
-
-  
 
 <!-- Instructions in German -->
 <div id="instructions-en">
@@ -157,26 +127,6 @@
 <footer>copyright by codepec</footer>
 
   <script src="../js/darkmode.js"></script>
-  <script>
-    // JavaScript für die Sprachumschaltung
-    const languageSelect = document.getElementById("languageSelect");
-
-    languageSelect.addEventListener("change", function() {
-      const language = this.value;
-      if (language === "en") {
-        document.getElementById("instructions-de").style.display = "none";
-        document.getElementById("instructions-en").style.display = "block";
-        document.getElementById("instructions-de2").style.display = "none";
-      } else if (language === "de") {
-        document.getElementById("instructions-en").style.display = "none";
-        document.getElementById("instructions-de").style.display = "block";
-        document.getElementById("instructions-de2").style.display = "none";
-      } else if (language === "de2") {
-        document.getElementById("instructions-en").style.display = "none";
-        document.getElementById("instructions-de").style.display = "none";
-        document.getElementById("instructions-de2").style.display = "block";
-      }
-    });
-  </script>
+  <script src="../js/settings_lang_instructions.js"></script>
 </body>
 </html>

@@ -1,25 +1,5 @@
 // JavaScript
 
-function toggleDarkMode() {
-  const darkModeToggle = document.getElementById("darkModeToggle");
-  const body = document.body;
-
-  if (darkModeToggle.checked) {
-    body.classList.add("dark-mode");
-  } else {
-    body.classList.remove("dark-mode");
-  }
-}
-
-// JavaScript
-// Diese Funktion prüft den Initialstatus des Dark-Mode beim Laden der Seite
-function checkDarkMode() {
-  const darkModeEnabled = localStorage.getItem("darkModeEnabled");
-  if (darkModeEnabled === "true") {
-    enableDarkMode();
-  }
-}
-
 // Diese Funktion aktiviert den Dark-Mode und speichert den Zustand im Local Storage
 function enableDarkMode() {
   document.body.classList.add("dark-mode");
@@ -39,6 +19,22 @@ function toggleDarkMode() {
     disableDarkMode();
   } else {
     enableDarkMode();
+  }
+}
+
+// Diese Funktion prüft den Initialstatus des Dark-Mode beim Laden der Seite
+function checkDarkMode() {
+  const darkModeEnabled = localStorage.getItem("darkModeEnabled");
+  const darkModeToggle = document.getElementById("darkModeToggle");
+  if (darkModeEnabled === "true") {
+    enableDarkMode();
+    if (darkModeToggle) {
+      darkModeToggle.checked = true;
+    }
+  } else {
+    if (darkModeToggle) {
+      darkModeToggle.checked = false;
+    }
   }
 }
 
