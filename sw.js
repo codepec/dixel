@@ -16,12 +16,13 @@ const filesToCache = [
   "./favicon.ico",
 ];
 
+/*
 console.log("[ServiceWorker] - Files to be cached:");
 
 filesToCache.forEach((file) => {
   console.log(file);
 });
-
+*/
 self.addEventListener("install", (e) => {
   console.log("[ServiceWorker] - Install event fired");
   e.waitUntil(
