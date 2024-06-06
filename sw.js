@@ -1,8 +1,8 @@
-const cacheName = "cache_v3";
+const cacheName = "cache_v4";
 const filesToCache = [
-  "/",
-  "index.html",
-  "/manifest.json",
+  "./",
+  "./index.html",
+  "./manifest.json",
   "./css/style.css",
   "./img/icon_ki.JPG",
   "./js/darkmode.js",
@@ -13,8 +13,14 @@ const filesToCache = [
   "./pages/offline.html",
   "./pages/instructions.html",
   "./pages/instructions.css",
-  "favicon.ico",
+  "./favicon.ico",
 ];
+
+console.log("[ServiceWorker] - Files to be cached:");
+
+filesToCache.forEach((file) => {
+  console.log(file);
+});
 
 self.addEventListener("install", (e) => {
   console.log("[ServiceWorker] - Install event fired");
