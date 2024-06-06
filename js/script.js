@@ -1,24 +1,30 @@
 function dragOverHandler(event) {
   event.preventDefault();
   const dropArea = document.getElementById("drop-area");
+  dropArea.classList.remove("empty-area");
   dropArea.classList.add("drag-over");
 }
 
 function dragLeaveHandler(event) {
   event.preventDefault();
   const dropArea = document.getElementById("drop-area");
+  dropArea.classList.remove("drop-area");
   dropArea.classList.remove("drag-over");
+  dropArea.classList.add("empty-area");
 }
 
 function dropHandler(event) {
   event.preventDefault();
   const dropArea = document.getElementById("drop-area");
+  dropArea.classList.add("empty-area");
+  dropArea.classList.remove("drop-area");
   dropArea.classList.remove("drag-over");
 
-  // Check if only image files are dropped
+  // Check if only JPG and PNG files are dropped
   for (let i = 0; i < event.dataTransfer.files.length; i++) {
-    if (!event.dataTransfer.files[i].type.startsWith("image/")) {
-      alert("Invalid");
+    const fileType = event.dataTransfer.files[i].type;
+    if (fileType !== "image/jpeg" && fileType !== "image/png") {
+      alert("Only JPG and PNG files are allowed.");
       return;
     }
   }
@@ -163,3 +169,17 @@ otherRadios.forEach(function (radio) {
     customSizeContainer.style.display = "none";
   });
 });
+
+// Attach event listeners to the drop area
+const dropArea = document.getElementById("drop-area");
+dropArea.addEventListener("dragover", dragOverHandler);
+dropArea.addEventListener("dragleave", dragLeaveHandler);
+dropArea.addEventListener("drop", dropHandler);
+
+// Event listener for the "browse" link
+document
+  .getElementById("fileSelect")
+  .addEventListener("click", function (event) {
+    event.preventDefault();
+    document.getElementById("fileElem").click();
+  });

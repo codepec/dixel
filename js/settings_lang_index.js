@@ -47,8 +47,6 @@ function applyTranslations(language) {
     translations[language].chooseSize;
   document.getElementById("manualInput").textContent =
     translations[language].manualInput;
-  document.getElementById("selectImages").textContent =
-    translations[language].selectImages;
   document.getElementById("labelSmall").textContent =
     translations[language].labelSmall;
   document.getElementById("labelMedium").textContent =

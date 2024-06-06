@@ -3,7 +3,7 @@ body {
   text-align: center;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
+  height: 100vh;
 }
 
 h1 {
@@ -49,7 +49,7 @@ h1 {
 h2 {
   margin-bottom: 10px;
   font-size: 18px;
-  color: #777;
+
 }
 
 label {
@@ -70,45 +70,59 @@ label {
 .radio-group label {
   cursor: pointer;
   padding: 12px 24px;
-  margin: 0 8px; /* Füge etwas Abstand zwischen den Optionen hinzu */
-  border: 2px solid #5c96f5; /* Ändere die Border-Farbe */
-  border-radius: 30px; /* Verwende eine abgerundete Border */
-  background-color: transparent; /* Mache den Hintergrund transparent */
-  color: #5c96f5;
+  margin: 0 8px;
+  border: 2px solid var(--text-color);
+  border-radius: 30px;
+  background-color: transparent;
+  color: var(--text-color);
   transition: all 0.3s ease;
-  font-weight: bold; /* Betone die Schrift */
+  font-weight: bold;
 }
 
 /* Styling für ausgewählte Radio-Buttons */
 .radio-group input[type="radio"]:checked + label {
   background-color: #5c96f5;
-  color: var(--text-color);;
+  border-color: #5c96f5; /* Ändere die Border-Farbe für ausgewählte Optionen */
+  color: var(--text-color);
 }
 
 .radio-group label:hover {
   background-color: #5c97f53c;
-
+  border-color: #5c97f5; /* Ändere die Border-Farbe für schwebende Optionen */
 }
 
 
 
+
+
 #drop-area {
-  border: 2px dashed #ccc;
+  border: 2px dashed #333;
   border-radius: 20px;
   padding: 30px;
   margin: 30px auto;
-  background-color: #ffffff;
-  transition: border 0.3s ease;
+  background-color: #b4c4d4;
+  transition: border 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* Transition für alle Effekte */
   max-width: 300px;
   max-height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #333;
 }
 
-#drop-area.drag_over {
-  border-color: #5c96f5;
+#drop-area.empty-area {
+  background-color: #b4c4d4;
 }
+
+#drop-area.drag-over {
+  border-color: #5c96f5;
+  background-color: #eaf3ff; /* Hellblauer Hintergrund, um den aktiven Drop-Bereich anzuzeigen */
+  box-shadow: 0 0 10px #5c96f5; /* Glüheffekt, um den Drop-Bereich hervorzuheben */
+}
+
+
+
+
 
 .button {
   display: inline-block;
@@ -123,17 +137,22 @@ label {
 
 .button:hover {
   background-color: #3060b5;
+
 }
+
+
 
 footer {
   left: 0;
   bottom: 0;
-  width: 100%;
-  color: #7c7c7c;
+
+  border-top: 1px solid #333;
+  box-shadow: 1px 1px 5px 1px #2c3e50;
+  color: #ffffff; /* Textfarbe des Footers */
   text-align: center;
-  margin-top: 30px;
   padding: 10px 0;
 }
+
 
 .icon {
   border-radius: 5px;
@@ -182,6 +201,7 @@ footer {
     display: inline-block;
     margin: 5px; /* Füge etwas Abstand zwischen den Optionen hinzu */
     width: auto; /* Setze die Breite automatisch */
+
   }
 
   .button {
@@ -345,7 +365,7 @@ footer {
 
 /* Light mode styles */
 :root {
-  --background-color: #cfcfcf;
+  --background-color: linear-gradient(135deg, #2c3e50, #4ca1af);
   --text-color: #333;
   --header-background-color: #ffffff;
   --header-text-color: #333;
@@ -353,7 +373,7 @@ footer {
 
 /* Dark mode styles */
 .dark-mode {
-  --background-color: #333;
+  --background-color: linear-gradient(135deg, #1e3c72, #2a5298);
   --text-color: #cfcfcf;
   --header-background-color: rgb(103, 103, 103);
   --header-text-color: #ffffff;
@@ -361,20 +381,20 @@ footer {
 
 /* Apply styles based on the current mode */
 body {
-  background-color: var(--background-color);
+  background: var(--background-color);
   color: var(--text-color);
 }
 
 /* Additional styles for elements */
 .navbar {
-  background-color: var(--background-color);
+  background: linear-gradient(135deg, #c1c1c1, var(--header-background-color)); /* Linearer Farbverlauf */
   color: var(--text-color);
 }
 
 .header {
-  background-color: var(--header-background-color);
+  background: linear-gradient(135deg, #c1c1c1, var(--header-background-color)); /* Linearer Farbverlauf */
   color: var(--header-text-color);
+
 }
-/* Add more styles as needed */
 
 

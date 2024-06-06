@@ -52,7 +52,7 @@
       <h1 id="title">Dixel - Size it right</h1>
 
     </div>
-    <p>by codepec</p>
+    <p>&copy by codepec</p>
   </div>
 
 
@@ -84,14 +84,12 @@
 
         <div>
 
-          <h2 id="selectImages">Select Images</h2>  
-
-          <input type="file" id="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)">
-
-          <div id="drop-area" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);" ondragleave="dragLeaveHandler(event);" dropzone>
-              <div>
-                  <h2 id="dropAreaText">Drop images here</h2><br> Drag and Drop
-              </div>
+  
+          <div id="drop-area" class="empty-area" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);" ondragleave="dragLeaveHandler(event);" dropzone>
+            <div>
+              <h2 id="dropAreaText">Drop Images Here</h2><br>
+              or <a href="#" id="fileSelect">browse</a><input type="file" id="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)" style="display:none;">
+            </div>
           </div>
 
         </div>
@@ -107,7 +105,6 @@
 
         <a id="downloadLink" style="display: none"></a> <!-- Hidden download link -->
 
-        <footer>copyright by codepec</footer>
 
         <script src="./js/script.js"></script>
         <script src="./js/darkmode.js" defer></script>
