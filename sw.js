@@ -1,10 +1,4 @@
-// This is the "Offline page" service worker
-
-importScripts(
-  "https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js"
-);
-
-const CACHE = "my-site-cache-v3";
+const CACHE = "my-site-cache-v4";
 
 // Offline fallback page and other resources to cache
 const offlineFallbackPage = "./pages/offline.html";
@@ -17,18 +11,13 @@ const assetsToCache = [
   "./js/darkmode.js",
   "./js/main.js",
   "./js/script.js",
-  "./js/settings_lang_index",
-  "./js/settings_lang_instructions",
+  "./js/settings_lang_index.js",
+  "./js/settings_lang_instructions.js",
   "./pages/offline.html",
   "./pages/instructions.html",
   "./pages/instructions.css",
   "./favicon.ico",
 ];
-
-// Enable navigation preload if supported
-if (workbox.navigationPreload.isSupported()) {
-  workbox.navigationPreload.enable();
-}
 
 // Listen for the 'message' event to allow skipping waiting
 self.addEventListener("message", (event) => {
@@ -46,28 +35,28 @@ self.addEventListener("install", (event) => {
   );
 });
 
-// Fetch event to serve the offline page for navigation requests
+// Fetch event to serve cached assets
 self.addEventListener("fetch", (event) => {
-  if (event.request.mode === "navigate") {
-    event.respondWith(
-      (async () => {
-        try {
-          // Try to use the preloaded response, if it's there
-          const preloadResponse = await event.preloadResponse;
-          if (preloadResponse) {
-            return preloadResponse;
-          }
-
-          // Try the network first
-          const networkResponse = await fetch(event.request);
-          return networkResponse;
-        } catch (error) {
-          // Network request failed, serve offline page from cache
-          const cache = await caches.open(CACHE);
-          const cachedResponse = await cache.match(offlineFallbackPage);
+  event.respondWith(
+    caches
+      .match(event.request)
+      .then((cachedResponse) => {
+        if (cachedResponse) {
           return cachedResponse;
         }
-      })()
-    );
-  }
+        return fetch(event.request).then((networkResponse) => {
+          // Cache the new resource for future use
+          return caches.open(CACHE).then((cache) => {
+            cache.put(event.request, networkResponse.clone());
+            return networkResponse;
+          });
+        });
+      })
+      .catch(() => {
+        // If both cache and network fail, show the offline page
+        if (event.request.mode === "navigate") {
+          return caches.match(offlineFallbackPage);
+        }
+      })
+  );
 });
