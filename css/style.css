@@ -82,13 +82,14 @@ label {
 /* Styling für ausgewählte Radio-Buttons */
 .radio-group input[type="radio"]:checked + label {
   background-color: #5c96f5;
-  border-color: #5c96f5; /* Ändere die Border-Farbe für ausgewählte Optionen */
+  border-color: var(--text-color); /* Ändere die Border-Farbe für ausgewählte Optionen */
   color: var(--text-color);
 }
 
 .radio-group label:hover {
-  background-color: #5c97f53c;
-  border-color: #5c97f5; /* Ändere die Border-Farbe für schwebende Optionen */
+  background-color: #5c96f5;
+  color:var(--header-background-color);
+
 }
 
 
@@ -364,20 +365,24 @@ footer {
 
 
 /* Light mode styles */
+
 :root {
-  --background-color: linear-gradient(135deg, #2c3e50, #4ca1af);
+  --background-color: #5599a1;
   --text-color: #333;
   --header-background-color: #ffffff;
   --header-text-color: #333;
 }
 
+
 /* Dark mode styles */
 .dark-mode {
-  --background-color: linear-gradient(135deg, #1e3c72, #2a5298);
-  --text-color: #cfcfcf;
-  --header-background-color: rgb(103, 103, 103);
-  --header-text-color: #ffffff;
+  --background-color: #333; /* Dunkles Grau bis Schwarz */
+  --text-color: #eeeeee; /* Helles Grau für Text */
+  --header-background-color: #222222; /* Dunklerer Hintergrund für den Header */
+  --header-text-color: #ffffff; /* Weißer Text für den Header */
 }
+
+
 
 /* Apply styles based on the current mode */
 body {
