@@ -1,13 +1,10 @@
-const CACHE = "my-site-cache-v4";
-
-// Offline fallback page and other resources to cache
-const offlineFallbackPage = "./pages/offline.html";
-const assetsToCache = [
-  offlineFallbackPage,
-  "./",
-  "./index.html",
+const cacheName = "cache_v2";
+const filesToCache = [
+  "/",
+  "index.html",
+  "/manifest.json",
   "./css/style.css",
-  "./img/icon_ki.jpg",
+  "./img/icon_ki.JPG",
   "./js/darkmode.js",
   "./js/main.js",
   "./js/script.js",
@@ -16,47 +13,66 @@ const assetsToCache = [
   "./pages/offline.html",
   "./pages/instructions.html",
   "./pages/instructions.css",
-  "./favicon.ico",
+  "favicon.ico",
 ];
 
-// Listen for the 'message' event to allow skipping waiting
-self.addEventListener("message", (event) => {
-  if (event.data && event.data.type === "SKIP_WAITING") {
-    self.skipWaiting();
-  }
-});
-
-// Install event to cache the offline page and other assets
-self.addEventListener("install", (event) => {
-  event.waitUntil(
-    caches.open(CACHE).then((cache) => {
-      return cache.addAll(assetsToCache);
-    })
+self.addEventListener("install", (e) => {
+  console.log("[ServiceWorker] - Install event fired");
+  e.waitUntil(
+    (async () => {
+      try {
+        const cache = await caches.open(cacheName);
+        console.log("[ServiceWorker] - Caching app shell");
+        await cache.addAll(filesToCache);
+        console.log("[ServiceWorker] - All files cached successfully:");
+        filesToCache.forEach((file) =>
+          console.log(`[ServiceWorker] - Cached file: ${file}`)
+        );
+        self.skipWaiting(); // Forces the waiting service worker to become the active service worker
+      } catch (error) {
+        console.error("[ServiceWorker] - Failed to cache", error);
+      }
+    })()
   );
 });
 
-// Fetch event to serve cached assets
-self.addEventListener("fetch", (event) => {
-  event.respondWith(
-    caches
-      .match(event.request)
-      .then((cachedResponse) => {
-        if (cachedResponse) {
-          return cachedResponse;
-        }
-        return fetch(event.request).then((networkResponse) => {
-          // Cache the new resource for future use
-          return caches.open(CACHE).then((cache) => {
-            cache.put(event.request, networkResponse.clone());
-            return networkResponse;
-          });
-        });
-      })
-      .catch(() => {
-        // If both cache and network fail, show the offline page
-        if (event.request.mode === "navigate") {
-          return caches.match(offlineFallbackPage);
-        }
-      })
+self.addEventListener("activate", (e) => {
+  console.log("[ServiceWorker] - Activate event fired");
+  e.waitUntil(
+    (async () => {
+      try {
+        const keyList = await caches.keys();
+        await Promise.all(
+          keyList.map((key) => {
+            if (key !== cacheName) {
+              console.log("[ServiceWorker] - Removing old cache", key);
+              return caches.delete(key);
+            }
+          })
+        );
+        await self.clients.claim();
+        console.log("[ServiceWorker] - Activated and old caches removed");
+      } catch (error) {
+        console.error("[ServiceWorker] - Activation failed", error);
+      }
+    })()
+  );
+});
+
+self.addEventListener("fetch", (e) => {
+  console.log("[ServiceWorker] - Fetch event fired for ", e.request.url);
+  e.respondWith(
+    (async () => {
+      const response = await caches.match(e.request);
+      if (response) {
+        console.log(
+          "[ServiceWorker] - Returning cached response for ",
+          e.request.url
+        );
+        return response;
+      }
+      console.log("[ServiceWorker] - Fetching from network ", e.request.url);
+      return fetch(e.request);
+    })()
   );
 });
