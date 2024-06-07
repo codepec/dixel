@@ -136,10 +136,20 @@ label {
   transition: background-color 0.3s ease;
 }
 
-.button:hover {
-  background-color: #3060b5;
+.install-button {
+  background-color: #5c96f5;
+}
+
+.install-button:hover {
+  background-color: #82b0f9;
 
 }
+.button:hover {
+  background-color: #3b72cc;
+}
+
+
+
 
 
 
@@ -216,10 +226,32 @@ footer {
     max-height: 300px;
   }
 
-  .navbar{
-    flex-wrap: wrap;
+
+}
+
+
+
+.mobile-dropdown {
+  display: none;
+}
+
+
+@media screen and (max-width: 480px) {
+  .mobile-dropdown {
+    display: block;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    background-color: #fff;
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 14px;
   }
 
+
+  .desktop-menu {
+    display: none;
+  }
 }
 
 /* Custom size inputs */
@@ -260,9 +292,8 @@ footer {
 }
 
 /* Navbar styling */
-/* Navbar styling */
+
 .navbar {
-  background-color: #333;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -270,15 +301,21 @@ footer {
   color: var(--text-color);
 }
 
-.navbar-left,
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
 .navbar-right {
   display: flex;
   align-items: center;
+  margin-left: auto;
 }
 
 .navbar-left label {
   margin-right: 8px;
 }
+
 
 .language select {
   padding: 6px;
@@ -309,45 +346,7 @@ footer {
   border-radius: 30px;
 }
 
-.navbar-right ul li input[type="checkbox"] {
-  display: none;
-}
-
-.navbar-right ul li input[type="checkbox"] + label {
-  position: relative;
-  display: inline-block;
-  width: 50px;
-  height: 25px;
-  background-color: #888;
-  border-radius: 25px;
-  transition: background-color 0.3s ease;
-}
-
-.navbar-right ul li input[type="checkbox"]:checked + label {
-  background-color: #4CAF50;
-}
-
-.navbar-right ul li input[type="checkbox"] + label::after {
-  content: '';
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 21px;
-  height: 21px;
-  background-color: #fff;
-  border-radius: 50%;
-  transition: transform 0.3s ease;
-}
-
-.navbar-right ul li input[type="checkbox"]:checked + label::after {
-  transform: translateX(25px);
-}
-
-.darkmode-container{
-  display: flex;
-  align-items: center;
-  vertical-align: middle;
-}
+  
 
 .margin-right{
   margin-right: 10px;
@@ -367,7 +366,7 @@ footer {
 /* Light mode styles */
 
 :root {
-  --background-color: #5599a1;
+  --background-color: #439da7;
   --text-color: #333;
   --header-background-color: #ffffff;
   --header-text-color: #333;
@@ -380,6 +379,10 @@ footer {
   --text-color: #eeeeee; /* Helles Grau für Text */
   --header-background-color: #222222; /* Dunklerer Hintergrund für den Header */
   --header-text-color: #ffffff; /* Weißer Text für den Header */
+}
+
+.settings-container {
+  background-color: var(--header-background-color);
 }
 
 

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dixel by codepec</title>
+
+   <!-- Standard theme-color for light mode -->
+   <meta name="theme-color" content="#5599a1" media="(prefers-color-scheme: light)">
+   <!-- Theme-color for dark mode -->
+   <meta name="theme-color" content="#333" media="(prefers-color-scheme: dark)">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="instructions.css">
+  <link rel="stylesheet" href="settings.css">
+  <link rel="icon" href="favicon.ico" type="image">
+
+<!-- PNG icons for different sizes -->
+<link rel="icon" type="image/png" sizes="48x48" href="../assets/icons/icon-48x48.png">
+<link rel="icon" type="image/png" sizes="128x128" href="../assets/icons/icon-128x128.png">
+
+<!-- Apple Touch Icon -->
+<link rel="apple-touch-icon" sizes="192x192" href="../assets/icons/icon-192x192.png">
+
+  <link rel="manifest" href="../manifest.json" />
+
+</head>
+<body>
+
+
+
+
+
+
+
+  <nav class="navbar">
+    <div class="navbar-left" >
+
+    </div>
+    <div class="navbar-right">
+
+      <select id="navDropdown" class="mobile-dropdown">
+        <option value="../index.html">Home</option>
+        <option value="../pages/settings.html">Settings</option>
+        <option value="../pages/instructions.html">Get Started</option>
+      </select>
+  
+   <div class="desktop-menu">
+      <ul >
+
+        <li id="home"><a href="../index.html">Home</a></li>
+        <li id="settings"><a href="./settings.html">Settings</a></li>
+        <li id="instructions"><a href="./instructions.html">Get Started</a></li>
+      </ul>
+    </div>
+    </div>
+  </nav>
+
+
+
+
+
+  <div class="blocker"></div>
+  
+  <div class="header">
+    <div class="logo-container">
+      <img class="icon" src="../img/icon_ki.JPG" alt="logo">
+      <h1 id="title">Dixel - Size it right</h1>
+    </div>
+    <p>&copy by codepec</p>
+  </div>
+
+
+  <h2 class="settings-title">Settings</h2>
+  <div class="settings-container">
+    <div class="settings-section">
+      <div class="settings-item">
+        <label for="languageSelect">Select your Language:</label>
+        <select id="languageSelect" onchange="changeLanguage()">
+          <option value="en">English</option>
+          <option value="de">Deutsch</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="settings-section">
+      <div class="settings-item toggle-container">
+        <p>Dark Mode:</p>
+        <input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()">
+        <label for="darkModeToggle"></label>
+      </div>
+    </div>
+
+    <div class="settings-section">
+      <div class="settings-item toggle-container">
+        <p>Offline Mode:</p>
+        <input type="checkbox" id="offlineModeToggle" onchange="toggleOfflineMode()">
+        <label for="offlineModeToggle"></label>
+      </div>
+    </div>
+
+
+  <div class="settings-section">
+    <button id="installButton" class="install-button" title="Einfach auf 'Install Dixel' klicken, um Dixel auf Ihrem Gerät zu installieren und einen schnellen Zugriff auf unsere Anwendung zu erhalten. Mit der Installation können Sie Dixel wie eine herkömmliche App verwenden und von den zusätzlichen Funktionen und Vorteilen einer progressiven Web-App profitieren.">Install Dixel</button>
+  </div>
+
+</div>
+
+  <script src="../js/darkmode.js"></script>
+  <script src="../js/offline.js"></script>
+  <script src="../js/lang_settings.js"></script>
+  <script src="../js/lang_nav.js"></script>
+
+  <script>
+
+    document.getElementById("navDropdown").addEventListener("change", function () {
+      var selectedOption = this.value;
+      window.location.href = selectedOption;
+    });
+
+  </script>
+
+
+  <script>
+    // Add event listener to the install button
+    const installButton = document.getElementById('installButton');
+    installButton.addEventListener('click', () => {
+      if (deferredPrompt) {
+        // Show the install prompt
+        deferredPrompt.prompt();
+        // Wait for the user to respond to the prompt
+        deferredPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+            console.log('User accepted the install prompt');
+          } else {
+            console.log('User dismissed the install prompt');
+          }
+          // Reset the deferredPrompt variable, as it can only be used once
+          deferredPrompt = null;
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>

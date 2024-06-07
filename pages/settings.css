@@ -1,0 +1,116 @@
+/* Toggle Styles */
+.toggle-container input[type="checkbox"] {
+  display: none;
+}
+
+.toggle-container input[type="checkbox"] + label {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+  background-color: #888;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-container input[type="checkbox"]:checked + label {
+  background-color: #4CAF50;
+}
+
+.toggle-container input[type="checkbox"] + label::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 21px;
+  height: 21px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.toggle-container input[type="checkbox"]:checked + label::after {
+  transform: translateX(25px);
+}
+
+/* Settings Container */
+.settings-container {
+  max-width: 600px;
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.settings-section {
+  padding: 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.settings-section:last-child {
+  border-bottom: none;
+}
+
+.settings-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 20px 20px 10px;
+}
+
+.settings-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.settings-item select,
+.settings-item input[type="checkbox"] {
+  margin-left: 10px;
+}
+
+.toggle-container {
+  display: flex;
+  align-items: center;
+}
+
+.toggle-container p {
+  margin-right: 10px;
+}
+
+.install-button {
+  display: block;
+  width: 200px;
+  height: 50px;
+  margin: 20px auto;
+  padding: 10px;
+  border: none;
+  border-radius: 25px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+
+
+/* Stil für den Tooltip */
+.install-button::before {
+  content: attr(title);
+  position: absolute;
+  top: 120%; /* Positionierung unterhalb des Buttons */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: none;
+  width: 300px; /* Breite des Tooltips anpassen */
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.install-button:hover::before {
+  display: block; /* Tooltip bei Hover anzeigen */
+}

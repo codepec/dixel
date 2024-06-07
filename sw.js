@@ -1,4 +1,4 @@
-const cacheName = "cache_v7";
+const cacheName = "cache_v8";
 const filesToCache = [
   "./",
   "./index.html",
@@ -8,13 +8,27 @@ const filesToCache = [
   "./js/darkmode.js",
   "./js/main.js",
   "./js/script.js",
-  "./js/settings_lang_index.js",
-  "./js/settings_lang_instructions.js",
+  "./js/lang_index.js",
+  "./js/lang_instructions.js",
+  "./js/lang_nav.js",
+  "./js/lang_settings.js",
+  "./js/offline.js",
   "./pages/offline.html",
   "./pages/instructions.html",
   "./pages/instructions.css",
+  "./pages/settings.html",
+  "./pages/settings.css",
   "./favicon.ico",
 ];
+
+let deferredPrompt;
+
+self.addEventListener("beforeinstallprompt", (e) => {
+  // Prevent Chrome 67 and earlier from automatically showing the prompt
+  e.preventDefault();
+  // Stash the event so it can be triggered later
+  deferredPrompt = e;
+});
 
 /*
 console.log("[ServiceWorker] - Files to be cached:");

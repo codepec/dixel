@@ -183,3 +183,8 @@ document
     event.preventDefault();
     document.getElementById("fileElem").click();
   });
+
+document.getElementById("navDropdown").addEventListener("change", function () {
+  var selectedOption = this.value;
+  window.location.href = selectedOption;
+});

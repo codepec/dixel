@@ -1,70 +1,69 @@
-/* instructions.css */
-
-/* Global styles */
+/* Container für die Anweisungen */
 .instructions-container {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-  }
-  
-  /* Heading styles */
-  .instruction-heading,
-  .tip-heading,
-  .support-heading {
-    color: #007bff;
-    font-weight: bold;
-    margin-top: 20px;
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 20px;
+}
 
-  }
-  
-  /* Instruction steps */
-  .instruction-steps {
-    list-style: none;
-    padding-left: 0;
+/* Anweisungen auf Deutsch */
+#instructions-de {
+  display: none;
+}
 
-  }
-  
-  .instruction-step {
+/* Anweisungen auf Englisch */
+#instructions-en {
+  display: block;
+}
 
+/* Überschriften */
+.instruction-heading,
+.tip-heading,
+.support-heading {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
 
-    border-radius: 30px;
-    margin: 0 10%;
-    margin-bottom: 10px;
-    padding:10px;
-  }
-  
-  .sub-steps {
-    list-style: none;
-    color:#007bff;
-  }
-  
-  .sub-step {
-    margin-bottom: 5px;
-  }
-  
-  /* Tips */
-  .tips-list {
-    list-style: none;
-    padding-left: 0;
-  }
-  
-  .tip {
-    margin-bottom: 10px;
-  }
-  
-  /* Support info */
-  .support-link {
-    color: #007bff;
-  }
-  
-  /* Responsive styles */
-  @media (max-width: 768px) {
-    .instruction-heading {
-      font-size: 18px;
-    }
-  
-    .instruction-steps,
-    .tips-list {
-      font-size: 16px;
-    }
-  }
-  
+/* Einleitungstext */
+.instruction-intro {
+  margin-bottom: 20px;
+}
+
+/* Anweisungsschritte */
+.instruction-steps {
+  list-style-type: decimal;
+  margin-left: 20px;
+  text-align: left;
+}
+
+/* Einzelschritte */
+.instruction-step {
+  margin-bottom: 10px;
+}
+
+/* Unterstützende Tipps */
+.tips-list {
+  list-style-type: disc;
+  margin-left: 20px;
+  text-align: left;
+}
+
+/* Einzeltipps */
+.tip {
+  margin-bottom: 10px;
+}
+
+/* Support-Informationen */
+.support-info {
+  margin-top: 20px;
+}
+
+/* Support-Link */
+.support-link {
+  color: #007bff; /* Linkfarbe anpassen */
+}
