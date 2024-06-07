@@ -111,12 +111,11 @@
   <script src="../js/lang_nav.js"></script>
 
   <script>
-
-    document.getElementById("navDropdown").addEventListener("change", function () {
-      var selectedOption = this.value;
+    document.getElementById("navDropdown").addEventListener("change", function (event) {
+      var selectedOption = event.target.value;
+      console.log("Selected option:", selectedOption); // Hier wird der ausgewählte Wert in der Konsole ausgegeben
       window.location.href = selectedOption;
     });
-
   </script>
 
 

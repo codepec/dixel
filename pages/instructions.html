@@ -40,7 +40,7 @@
     <div class="navbar-right">
 
       <select id="navDropdown" class="mobile-dropdown">
-        <option value="../index.html">Home</option>
+        <option value="./index.html">Home</option>
         <option value="../pages/settings.html">Settings</option>
         <option value="../pages/instructions.html">Get Started</option>
       </select>
@@ -146,12 +146,11 @@
 
   <script src="../js/darkmode.js"></script>
   <script>
-
     document.getElementById("navDropdown").addEventListener("change", function () {
       var selectedOption = this.value;
+      console.log("Selected option:", selectedOption); // Hier wird der ausgewählte Wert in der Konsole ausgegeben
       window.location.href = selectedOption;
     });
-
   </script>
   <script src="../js/offline.js"></script>
   <script src="../js/lang_instructions.js"></script>
