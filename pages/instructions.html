@@ -40,6 +40,7 @@
     <div class="navbar-right">
 
       <select id="navDropdown" class="mobile-dropdown">
+        <option>Menü</option>
         <option value="../index.html">Home</option>
         <option value="./settings.html">Settings</option>
         <option value="./instructions.html">Get Started</option>
@@ -150,6 +151,7 @@
       var selectedOption = this.value;
       console.log("Selected option:", selectedOption); // Hier wird der ausgewählte Wert in der Konsole ausgegeben
       window.location.href = selectedOption;
+      alert(selectedOption);
     });
   </script>
   <script src="../js/offline.js"></script>
