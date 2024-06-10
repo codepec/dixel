@@ -385,6 +385,9 @@ footer {
   background-color: var(--header-background-color);
 }
 
+.instructions-container {
+  background-color: var(--header-background-color);
+}
 
 
 /* Apply styles based on the current mode */
@@ -395,14 +398,60 @@ body {
 
 /* Additional styles for elements */
 .navbar {
-  background: linear-gradient(135deg, #c1c1c1, var(--header-background-color)); /* Linearer Farbverlauf */
+  background: linear-gradient(135deg, #c1c1c1, var(--header-background-color)); 
   color: var(--text-color);
 }
 
 .header {
-  background: linear-gradient(135deg, #c1c1c1, var(--header-background-color)); /* Linearer Farbverlauf */
+  background: linear-gradient(135deg, #c1c1c1, var(--header-background-color)); 
   color: var(--header-text-color);
 
 }
 
 
+table {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: var(--text-color);
+}
+
+table th, table td {
+  padding: 12px;
+  border: 1px solid #000000;
+  text-align: left;
+}
+
+table th {
+  background-color: #5c96f5;
+  font-weight: bold;
+}
+
+table tr {
+  background-color: #c1c1c1; 
+  color: var(--header-text-color);
+}
+
+
+table td {
+  color: var(--text-color);
+}
+
+
+/* Mobile Version */
+@media screen and (max-width: 480px) {
+  table {
+    width: 100%;
+    margin: 10px 0;
+    font-size: 14px;
+  }
+
+  table th, table td {
+    padding: 8px;
+  }
+
+  table th {
+    font-size: 16px;
+  }
+}

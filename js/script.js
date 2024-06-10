@@ -116,6 +116,23 @@ function handleFiles(files) {
         canvas.height = newHeight;
         ctx.drawImage(img, 0, 0, newWidth, newHeight);
 
+        // Calculate the size in KB
+        const imageDataUrl = canvas.toDataURL("image/jpeg", 0.5);
+        const imageData = atob(imageDataUrl.split(",")[1]);
+        const imageSizeKB = (imageData.length / 1024).toFixed(2);
+
+        // Create a new table row with the image details
+        const tableRow = document.createElement("tr");
+        tableRow.innerHTML = `
+          <td>${file.name}</td>
+          <td>${selectedSize}</td>
+          <td>${newWidth}</td>
+          <td>${newHeight}</td>
+          <td>${imageSizeKB} KB</td>
+        `;
+        document.querySelector("#image-table tbody").appendChild(tableRow);
+
+        /*
         const doneText = document.createElement("p");
         doneText.appendChild(
           document.createTextNode(
@@ -133,7 +150,10 @@ function handleFiles(files) {
         const imageContainer = document.getElementById("image-container");
         imageContainer.appendChild(doneText);
 
-        saveImage(canvas.toDataURL("image/jpeg", 0.5), file.name); // Save the resized image
+        */
+
+        // Save the resized image
+        saveImage(imageDataUrl, file.name);
       };
 
       document.getElementById("progress-container").style.display = "none";
