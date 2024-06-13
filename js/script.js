@@ -1,30 +1,24 @@
 function dragOverHandler(event) {
   event.preventDefault();
   const dropArea = document.getElementById("drop-area");
-  dropArea.classList.remove("empty-area");
   dropArea.classList.add("drag-over");
 }
 
 function dragLeaveHandler(event) {
   event.preventDefault();
   const dropArea = document.getElementById("drop-area");
-  dropArea.classList.remove("drop-area");
   dropArea.classList.remove("drag-over");
-  dropArea.classList.add("empty-area");
 }
 
 function dropHandler(event) {
   event.preventDefault();
   const dropArea = document.getElementById("drop-area");
-  dropArea.classList.add("empty-area");
-  dropArea.classList.remove("drop-area");
   dropArea.classList.remove("drag-over");
 
-  // Check if only JPG and PNG files are dropped
+  // Check if only image files are dropped
   for (let i = 0; i < event.dataTransfer.files.length; i++) {
-    const fileType = event.dataTransfer.files[i].type;
-    if (fileType !== "image/jpeg" && fileType !== "image/png") {
-      alert("Only JPG and PNG files are allowed.");
+    if (!event.dataTransfer.files[i].type.startsWith("image/")) {
+      alert("Invalid");
       return;
     }
   }
@@ -55,15 +49,6 @@ function handleFiles(files) {
     const file = files[i];
     if (!file.type.startsWith("image/")) continue;
     const reader = new FileReader();
-
-    reader.onprogress = function (event) {
-      const percentLoaded = Math.round((event.loaded / event.total) * 100);
-      document.getElementById("progress-bar").style.width = percentLoaded + "%";
-    };
-
-    reader.onloadstart = function () {
-      document.getElementById("progress-container").style.display = "block";
-    };
 
     reader.onload = function (event) {
       const img = new Image();
@@ -121,6 +106,13 @@ function handleFiles(files) {
         const imageData = atob(imageDataUrl.split(",")[1]);
         const imageSizeKB = (imageData.length / 1024).toFixed(2);
 
+        // Calculate compression ratio based on original and new sizes
+        const originalSizeKB = (file.size / 1024).toFixed(2);
+        const compressionRatio = (
+          (1 - imageSizeKB / originalSizeKB) *
+          100
+        ).toFixed(2);
+
         // Create a new table row with the image details
         const tableRow = document.createElement("tr");
         tableRow.innerHTML = `
@@ -128,35 +120,14 @@ function handleFiles(files) {
           <td>${selectedSize}</td>
           <td>${newWidth}</td>
           <td>${newHeight}</td>
-          <td>${imageSizeKB} KB</td>
+          <td>${originalSizeKB}</td>
+          <td>${imageSizeKB}</td>
+          <td>${compressionRatio}%</td>
         `;
         document.querySelector("#image-table tbody").appendChild(tableRow);
 
-        /*
-        const doneText = document.createElement("p");
-        doneText.appendChild(
-          document.createTextNode(
-            file.name +
-              " - " +
-              selectedSize +
-              " - " +
-              newWidth +
-              " x " +
-              newHeight +
-              " - 100%"
-          )
-        );
-
-        const imageContainer = document.getElementById("image-container");
-        imageContainer.appendChild(doneText);
-
-        */
-
-        // Save the resized image
-        saveImage(imageDataUrl, file.name);
+        saveImage(canvas.toDataURL("image/jpeg", 0.5), file.name); // Save the resized image
       };
-
-      document.getElementById("progress-container").style.display = "none";
     };
     reader.readAsDataURL(file);
   }
@@ -168,38 +139,3 @@ function saveImage(dataUrl, fileName) {
   a.download = fileName;
   a.click();
 }
-
-// JavaScript
-const customRadio = document.getElementById("custom");
-const customSizeContainer = document.getElementById("customSizeContainer");
-const otherRadios = document.querySelectorAll(
-  'input[type="radio"]:not(#custom)'
-);
-
-customRadio.addEventListener("change", function () {
-  if (this.checked) {
-    customSizeContainer.style.display = "block";
-  } else {
-    customSizeContainer.style.display = "none";
-  }
-});
-
-otherRadios.forEach(function (radio) {
-  radio.addEventListener("change", function () {
-    customSizeContainer.style.display = "none";
-  });
-});
-
-// Attach event listeners to the drop area
-const dropArea = document.getElementById("drop-area");
-dropArea.addEventListener("dragover", dragOverHandler);
-dropArea.addEventListener("dragleave", dragLeaveHandler);
-dropArea.addEventListener("drop", dropHandler);
-
-// Event listener for the "browse" link
-document
-  .getElementById("fileSelect")
-  .addEventListener("click", function (event) {
-    event.preventDefault();
-    document.getElementById("fileElem").click();
-  });

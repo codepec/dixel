@@ -35,10 +35,6 @@ document.addEventListener("DOMContentLoaded", function () {
       document.querySelector(
         ".settings-section:nth-child(3) .toggle-container p"
       ).textContent = "Offline Mode:";
-
-      // Setze den Tooltip-Text für Englisch
-      document.getElementById("installButton").title =
-        "Simply click 'Install Dixel' to install Dixel on your device and get quick access to our application. With the installation, you can use Dixel like a traditional app and benefit from the additional features and advantages of a progressive web app.";
     } else if (language === "de") {
       document.documentElement.lang = "de";
       // Update text content for German
@@ -51,10 +47,6 @@ document.addEventListener("DOMContentLoaded", function () {
       document.querySelector(
         ".settings-section:nth-child(3) .toggle-container p"
       ).textContent = "Offline Modus:";
-
-      // Setze den Tooltip-Text für Deutsch
-      document.getElementById("installButton").title =
-        "Einfach auf 'Install Dixel' klicken, um Dixel auf Ihrem Gerät zu installieren und einen schnellen Zugriff auf unsere Anwendung zu erhalten. Mit der Installation können Sie Dixel wie eine herkömmliche App verwenden und von den zusätzlichen Funktionen und Vorteilen einer progressiven Web-App profitieren.";
     }
   }
 });

@@ -1,4 +1,4 @@
-const cacheName = "cache_v14";
+const cacheName = "cache_v15";
 const filesToCache = [
   "./",
   "./index.html",
@@ -19,17 +19,7 @@ const filesToCache = [
   "./pages/instructions.css",
   "./pages/settings.html",
   "./pages/settings.css",
-  "./favicon.ico",
 ];
-
-let deferredPrompt;
-
-self.addEventListener("beforeinstallprompt", (e) => {
-  // Prevent Chrome 67 and earlier from automatically showing the prompt
-  e.preventDefault();
-  // Stash the event so it can be triggered later
-  deferredPrompt = e;
-});
 
 /*
 console.log("[ServiceWorker] - Files to be cached:");
