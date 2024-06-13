@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVG Icons</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #ffffff;
+    }
+
+    .svg-container {
+      width: 100px;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 2px solid #333;
+      border-radius: 50%;
+      overflow: hidden;
+      transition: all 0.3s ease;
+  
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+    }
+
+    .svg-container:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 10px rgba(65, 98, 168, 0.938);
+
+    }
+
+    .svg-container svg {
+      width: 70%;
+      height: 70%;
+      transition: transform 0.3s ease-in-out;
+
+    }
+  </style>
+</head>
+<body>
+  <div class="svg-container">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="48"
+      height="48"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <circle cx="12" cy="12" r="11" fill="none" />
+      <path d="M6 9l6 6 6-6" />
+    </svg>
+  </div>
+</body>
+</html>
