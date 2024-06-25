@@ -1,4 +1,4 @@
-/* Container für die Anweisungen */
+
 .instructions-container {
   max-width: 600px;
   margin: 20px auto;
@@ -9,17 +9,17 @@
   padding: 20px;
 }
 
-/* Anweisungen auf Deutsch */
+
 #instructions-de {
   display: none;
 }
 
-/* Anweisungen auf Englisch */
+
 #instructions-en {
   display: block;
 }
 
-/* Überschriften */
+
 .instruction-heading,
 .tip-heading,
 .support-heading {
@@ -29,41 +29,41 @@
   margin-bottom: 10px;
 }
 
-/* Einleitungstext */
+
 .instruction-intro {
   margin-bottom: 20px;
 }
 
-/* Anweisungsschritte */
+
 .instruction-steps {
   list-style-type: decimal;
   margin-left: 20px;
   text-align: left;
 }
 
-/* Einzelschritte */
+
 .instruction-step {
   margin-bottom: 10px;
 }
 
-/* Unterstützende Tipps */
+
 .tips-list {
   list-style-type: disc;
   margin-left: 20px;
   text-align: left;
 }
 
-/* Einzeltipps */
+
 .tip {
   margin-bottom: 10px;
 }
 
-/* Support-Informationen */
+
 .support-info {
   margin-top: 20px;
 }
 
-/* Support-Link */
+
 .support-link {
-  color: #007bff; /* Linkfarbe anpassen */
+  color: #007bff; 
 }

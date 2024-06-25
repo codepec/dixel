@@ -16,6 +16,13 @@ const translations = {
     heightPlaceholder: "Height in pixels",
     dropAreaText: "Drop images here",
     resizedImages: "Resized Images",
+    thName: "Name",
+    thSelectedSize: "Selected Size",
+    thWidth: "Width",
+    thHeight: "Height",
+    thOriginalSize: "Original Size (KB)",
+    thNewSize: "New Size (KB)",
+    thCompression: "Compression",
   },
   de: {
     title: "Dixel - Size it right",
@@ -32,6 +39,13 @@ const translations = {
     heightPlaceholder: "Höhe in Pixel",
     dropAreaText: "Bilder hier ablegen",
     resizedImages: "Verkleinerte Bilder",
+    thName: "Name",
+    thSelectedSize: "Gewählte Größe",
+    thWidth: "Breite",
+    thHeight: "Höhe",
+    thOriginalSize: "Originalgröße (KB)",
+    thNewSize: "Reduzierte Größe (KB)",
+    thCompression: "Komprimierung",
   },
 };
 
@@ -67,6 +81,22 @@ function applyTranslations(language) {
     translations[language].dropAreaText;
   document.getElementById("resizedImages").textContent =
     translations[language].resizedImages;
+
+  // Update table headers
+  document.getElementById("th-name").textContent =
+    translations[language].thName;
+  document.getElementById("th-selected-size").textContent =
+    translations[language].thSelectedSize;
+  document.getElementById("th-width").textContent =
+    translations[language].thWidth;
+  document.getElementById("th-height").textContent =
+    translations[language].thHeight;
+  document.getElementById("th-original-size").textContent =
+    translations[language].thOriginalSize;
+  document.getElementById("th-new-size").textContent =
+    translations[language].thNewSize;
+  document.getElementById("th-compression").textContent =
+    translations[language].thCompression;
 }
 
 document.addEventListener("DOMContentLoaded", function () {

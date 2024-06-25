@@ -1,4 +1,4 @@
-/* Toggle Styles */
+
 .toggle-container input[type="checkbox"] {
   display: none;
 }
@@ -33,7 +33,6 @@
   transform: translateX(25px);
 }
 
-/* Settings Container */
 .settings-container {
   max-width: 600px;
   margin: 20px auto;
@@ -94,16 +93,16 @@
 
 
 
-/* Stil für den Tooltip */
+
 .install-button::before {
   content: attr(title);
   position: absolute;
-  top: 120%; /* Positionierung unterhalb des Buttons */
+  top: 120%; 
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
   display: none;
-  width: 300px; /* Breite des Tooltips anpassen */
+  width: 300px; 
   padding: 10px;
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
@@ -112,5 +111,5 @@
 }
 
 .install-button:hover::before {
-  display: block; /* Tooltip bei Hover anzeigen */
+  display: block;
 }

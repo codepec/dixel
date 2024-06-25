@@ -11,7 +11,6 @@ Check out the live demo of Dixel: [Dixel Live Demo](https://codepec.github.io/di
 - **Multiple Size Options**: Choose from predefined sizes: Small, Medium, Large, XXL, and Mobile.
 - **Custom Size**: Input custom dimensions for precise resizing.
 - **Drag and Drop**: Easily drag and drop images to resize.
-- **Progress Bar**: Visual feedback on the upload and resizing process.
 - **Download Resized Images**: Download your resized images directly from the app.
 
 ## Installation

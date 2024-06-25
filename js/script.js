@@ -126,7 +126,7 @@ function handleFiles(files) {
         `;
         document.querySelector("#image-table tbody").appendChild(tableRow);
 
-        saveImage(canvas.toDataURL("image/jpeg", 0.5), file.name); // Save the resized image
+        saveImage(canvas.toDataURL("image/jpeg", 1.0), file.name); // Save the resized image
       };
     };
     reader.readAsDataURL(file);
