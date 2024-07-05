@@ -1,6 +1,6 @@
-const cacheName = "cache_v16";
+const cacheName = "cache_v18";
 const filesToCache = [
-  "./",
+  /* "./",
   "./index.html",
   "./manifest.json",
   "./css/style.css",
@@ -18,7 +18,7 @@ const filesToCache = [
   "./pages/instructions.html",
   "./pages/instructions.css",
   "./pages/settings.html",
-  "./pages/settings.css",
+  "./pages/settings.css",*/
 ];
 
 /*

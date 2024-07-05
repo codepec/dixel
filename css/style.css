@@ -436,3 +436,22 @@ table td {
     display:none;
   }
 }
+
+/* CSS for the quality slider */
+#chooseQuality {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.quality-slider-container {
+  margin-bottom: 20px;
+}
+
+.quality-slider-container input[type="range"] {
+  width: 20%;
+  margin: 0 10px;
+}
+
+.quality-slider-container label {
+  font-size: 14px;
+}

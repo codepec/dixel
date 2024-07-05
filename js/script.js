@@ -102,7 +102,10 @@ function handleFiles(files) {
         ctx.drawImage(img, 0, 0, newWidth, newHeight);
 
         // Calculate the size in KB
-        const imageDataUrl = canvas.toDataURL("image/jpeg", 0.5);
+        const quality = parseFloat(
+          document.getElementById("qualitySlider").value
+        );
+        const imageDataUrl = canvas.toDataURL("image/jpeg", quality);
         const imageData = atob(imageDataUrl.split(",")[1]);
         const imageSizeKB = (imageData.length / 1024).toFixed(2);
 
@@ -126,7 +129,7 @@ function handleFiles(files) {
         `;
         document.querySelector("#image-table tbody").appendChild(tableRow);
 
-        saveImage(canvas.toDataURL("image/jpeg", 1.0), file.name); // Save the resized image
+        saveImage(imageDataUrl, file.name, quality); // Save the resized image
       };
     };
     reader.readAsDataURL(file);
@@ -139,3 +142,37 @@ function saveImage(dataUrl, fileName) {
   a.download = fileName;
   a.click();
 }
+
+// Event Listener für den Slider-Wert
+document.getElementById("qualitySlider").addEventListener("input", function () {
+  // Aktualisierung der Anzeige für die Bildqualität in Prozent
+  document.getElementById("qualityValue").textContent =
+    Math.round(this.value * 100) + "%";
+  // Aktualisierung der quality-Variable
+  quality = this.value;
+});
+
+const sizeRadios = document.querySelectorAll('input[name="size"]');
+sizeRadios.forEach((radio) => {
+  radio.addEventListener("change", function () {
+    const customSizeContainer = document.getElementById("customSizeContainer");
+    if (this.value === "custom") {
+      customSizeContainer.style.display = "block";
+    } else {
+      customSizeContainer.style.display = "none";
+    }
+  });
+});
+
+function setDefaultSliderValue() {
+  const slider = document.getElementById("qualitySlider");
+  const sliderValueDisplay = document.getElementById("qualityValue");
+
+  // Setze den Slider-Wert auf 0.8
+  slider.value = 0.9;
+  // Setze die Anzeige für die Qualität auf 80%
+  sliderValueDisplay.textContent = "90%";
+}
+
+// Füge ein Event Listener hinzu, der die Funktion beim Laden der Seite aufruft
+window.addEventListener("load", setDefaultSliderValue);

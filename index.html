@@ -106,6 +106,14 @@
           </div>
         </div>
 
+
+        <h2 id="chooseQuality">Choose Image Quality</h2>
+        <div class="quality-slider-container">
+          <input type="range" id="qualitySlider" name="quality" min="0.5" max="1.0" step="0.1" value="0.9">
+          <label for="qualitySlider" id="qualityValue">90%</label>
+        </div>
+      
+
         <div>
 
   
@@ -156,6 +164,7 @@
             var selectedOption = this.value;
             window.location.href = selectedOption;
           });
+      
         </script>
 
 </body>
