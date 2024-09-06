@@ -1,3 +1,11 @@
+function renameFile(file) {
+  const newFileName = document.getElementById("newFileName").value.trim();
+  if (newFileName) {
+    file.newName = newFileName;
+  }
+  return file;
+}
+
 function dragOverHandler(event) {
   event.preventDefault();
   const dropArea = document.getElementById("drop-area");
@@ -18,7 +26,7 @@ function dropHandler(event) {
   // Check if only image files are dropped
   for (let i = 0; i < event.dataTransfer.files.length; i++) {
     if (!event.dataTransfer.files[i].type.startsWith("image/")) {
-      alert("Invalid");
+      alert("Invalid file type");
       return;
     }
   }
@@ -30,7 +38,6 @@ document.getElementById("fileSelect").addEventListener("click", function (event)
   event.preventDefault(); // Prevent default anchor behavior
   document.getElementById("fileElem").click(); // Trigger the hidden file input
 });
-
 
 function handleFiles(files) {
   let selectedSize = document.querySelector('input[name="size"]:checked').value;
@@ -47,14 +54,17 @@ function handleFiles(files) {
   }
 
   for (let i = 0; i < files.length; i++) {
-    const file = files[i];
+    let file = files[i];
     if (!file.type.startsWith("image/")) continue;
+
+    file = renameFile(file); // Apply renaming if a new name is provided
+
     const reader = new FileReader();
 
     reader.onload = function (event) {
       const img = new Image();
       img.src = event.target.result;
-      
+
       img.onload = function () {
         const canvas = document.createElement("canvas");
         const ctx = canvas.getContext("2d");
@@ -124,7 +134,7 @@ function handleFiles(files) {
 
         const tableRow = document.createElement("tr");
         tableRow.innerHTML = `
-          <td>${escapeHTML(file.name)}</td>
+          <td>${escapeHTML(file.newName || file.name)}</td>
           <td>${escapeHTML(selectedSize)}</td>
           <td>${escapeHTML(newWidth)}</td>
           <td>${escapeHTML(newHeight)}</td>
@@ -134,7 +144,7 @@ function handleFiles(files) {
         `;
         document.querySelector("#image-table tbody").appendChild(tableRow);
 
-        saveImage(imageDataUrl, file.name, quality);
+        saveImage(imageDataUrl, file.newName || file.name, quality);
       };
     };
     reader.readAsDataURL(file);
@@ -182,9 +192,9 @@ function setDefaultSliderValue() {
   const slider = document.getElementById("qualitySlider");
   const sliderValueDisplay = document.getElementById("qualityValue");
 
-  // Setze den Slider-Wert auf 0.8
+  // Setze den Slider-Wert auf 0.9
   slider.value = 0.9;
-  // Setze die Anzeige für die Qualität auf 80%
+  // Setze die Anzeige für die Qualität auf 90%
   sliderValueDisplay.textContent = "90%";
 }
 

@@ -4,6 +4,7 @@ const translations = {
   en: {
     title: "Dixel - Size it right",
     chooseSize: "Choose Image Size",
+    chooseFilename: "Rename",
     manualInput: "Manual Input",
     selectImages: "Select Images",
     labelSmall: "Small",
@@ -28,6 +29,7 @@ const translations = {
   de: {
     title: "Dixel - Size it right",
     chooseSize: "Bildgröße wählen",
+    chooseFilename: "Umbenennen",
     manualInput: "Manuelle Eingabe",
     selectImages: "Bilder auswählen",
     labelSmall: "Klein",
@@ -61,6 +63,8 @@ function applyTranslations(language) {
   document.getElementById("title").textContent = translations[language].title;
   document.getElementById("chooseSize").textContent =
     translations[language].chooseSize;
+  document.getElementById("chooseFilename").textContent =
+    translations[language].chooseFilename;
   document.getElementById("manualInput").textContent =
     translations[language].manualInput;
   document.getElementById("labelSmall").textContent =
