@@ -1,7 +1,28 @@
+function escapeHTML(text) {
+  const element = document.createElement('div');
+  if (text) {
+    element.innerText = text;
+    text = element.innerHTML;
+  }
+  return text;
+}
+
+function isValidFilename(filename) {
+  // Erlaubt nur Buchstaben, Zahlen, _ und -
+  return /^[a-zA-Z0-9_-]+$/.test(filename);
+}
+
 function renameFile(file) {
   const newFileName = document.getElementById("newFileName").value.trim();
   if (newFileName) {
-    file.newName = newFileName;
+    // Escape HTML and validate the filename
+    const escapedFileName = escapeHTML(newFileName);
+    if (isValidFilename(escapedFileName)) {
+      file.newName = escapedFileName;
+    } else {
+      alert("Invalid filename. Only letters, numbers, _ and - are allowed.");
+      return file; // Return the original file if the name is invalid
+    }
   }
   return file;
 }
@@ -151,14 +172,7 @@ function handleFiles(files) {
   }
 }
 
-function escapeHTML(text) {
-  const element = document.createElement('div');
-  if (text) {
-    element.innerText = text;
-    text = element.innerHTML;
-  }
-  return text;
-}
+
 
 function saveImage(dataUrl, fileName) {
   const a = document.createElement("a");
