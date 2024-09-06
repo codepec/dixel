@@ -107,7 +107,7 @@ label {
   border-radius: 20px;
   padding: 30px;
   margin: 30px auto;
-  background-color: #b4c4d4;
+  background-color: #ffffff;
   transition: border 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; 
   max-width: 300px;
   max-height: 400px;
@@ -118,7 +118,7 @@ label {
 }
 
 #drop-area.empty-area {
-  background-color: #b4c4d4;
+  background-color: #ffffff;
 }
 
 #drop-area.drag-over {
@@ -350,7 +350,7 @@ footer {
 
 
 :root {
-  --background-color: #439da7;
+  --background-color: #a8cbd5;
   --text-color: #333;
   --header-background-color: #ffffff;
   --header-text-color: #333;
@@ -381,15 +381,16 @@ body {
 
 
 .navbar {
-  background: linear-gradient(135deg, #c1c1c1, var(--header-background-color)); 
+  background: linear-gradient(135deg, #d0e9f2, #b0d6e3); /* Subtiler Verlauf von Blau zu Blau */
   color: var(--text-color);
 }
 
 .header {
-  background: linear-gradient(135deg, #c1c1c1, var(--header-background-color)); 
+  background: linear-gradient(135deg, #f2f2f2, #e6e6e6); /* Subtiler Verlauf von Grau zu Grau */
   color: var(--header-text-color);
-
 }
+
+
 
 
 table {

@@ -15,6 +15,7 @@ const translations = {
     widthPlaceholder: "Width in pixels",
     heightPlaceholder: "Height in pixels",
     dropAreaText: "Drop images here",
+    fileSelect: "browse",
     resizedImages: "Resized Images",
     thName: "Name",
     thSelectedSize: "Selected Size",
@@ -38,6 +39,7 @@ const translations = {
     widthPlaceholder: "Breite in Pixel",
     heightPlaceholder: "Höhe in Pixel",
     dropAreaText: "Bilder hier ablegen",
+    fileSelect: "durchsuchen",
     resizedImages: "Verkleinerte Bilder",
     thName: "Name",
     thSelectedSize: "Gewählte Größe",
@@ -79,6 +81,8 @@ function applyTranslations(language) {
     translations[language].heightPlaceholder;
   document.getElementById("dropAreaText").textContent =
     translations[language].dropAreaText;
+  document.getElementById("fileSelect").textContent =
+    translations[language].fileSelect;
   document.getElementById("resizedImages").textContent =
     translations[language].resizedImages;
 

@@ -26,6 +26,12 @@ function dropHandler(event) {
   handleFiles(event.dataTransfer.files);
 }
 
+document.getElementById("fileSelect").addEventListener("click", function (event) {
+  event.preventDefault(); // Prevent default anchor behavior
+  document.getElementById("fileElem").click(); // Trigger the hidden file input
+});
+
+
 function handleFiles(files) {
   let selectedSize = document.querySelector('input[name="size"]:checked').value;
   let customWidth, customHeight;
@@ -53,84 +59,94 @@ function handleFiles(files) {
     reader.onload = function (event) {
       const img = new Image();
       img.src = event.target.result;
-      img.onload = function () {
-        const canvas = document.createElement("canvas");
-        const ctx = canvas.getContext("2d");
+          // Inside the img.onload function where resizing occurs
+        img.onload = function () {
+          const canvas = document.createElement("canvas");
+          const ctx = canvas.getContext("2d");
 
-        let newWidth, newHeight;
-        if (selectedSize === "custom") {
-          // Calculate new dimensions while maintaining aspect ratio
-          const aspectRatio = img.width / img.height;
-          if (customWidth / customHeight > aspectRatio) {
-            newWidth = customHeight * aspectRatio;
-            newHeight = customHeight;
+          let newWidth, newHeight;
+          if (selectedSize === "custom") {
+            // Custom size handling (already exists in your code)
+            const aspectRatio = img.width / img.height;
+            if (customWidth / customHeight > aspectRatio) {
+              newWidth = customHeight * aspectRatio;
+              newHeight = customHeight;
+            } else {
+              newHeight = customWidth / aspectRatio;
+              newWidth = customWidth;
+            }
           } else {
-            newHeight = customWidth / aspectRatio;
-            newWidth = customWidth;
+            let targetSize = 1920; // Default target size for resizing
+
+            // If the image is landscape (width > height)
+            if (img.width > img.height) {
+              newWidth = targetSize; // Set the width to the fixed target size
+              newHeight = Math.round(targetSize / (img.width / img.height)); // Calculate height proportionally
+            }
+            // If the image is portrait (height > width)
+            else {
+              newHeight = targetSize; // Set the height to the fixed target size
+              newWidth = Math.round(targetSize * (img.width / img.height)); // Calculate width proportionally
+            }
+
+            // You can further adjust these values based on selectedSize if needed
+            switch (selectedSize) {
+              case "small":
+                targetSize = 854; // Smaller size
+                break;
+              case "medium":
+                targetSize = 1366;
+                break;
+              case "large":
+                targetSize = 1920;
+                break;
+              case "xlarge":
+                targetSize = 2560;
+                break;
+              case "mobile":
+                targetSize = 320;
+                break;
+              default:
+                targetSize = img.width > img.height ? img.width : img.height; // Use the original size
+                break;
+            }
+
+            // Adjust the dimensions again based on the target size after updating the targetSize variable
+            if (img.width > img.height) {
+              newWidth = targetSize;
+              newHeight = Math.round(targetSize / (img.width / img.height));
+            } else {
+              newHeight = targetSize;
+              newWidth = Math.round(targetSize * (img.width / img.height));
+            }
           }
-        } else {
-          switch (selectedSize) {
-            case "small":
-              newWidth = 854;
-              newHeight = Math.round(854 / (img.width / img.height));
-              break;
-            case "medium":
-              newWidth = 1366;
-              newHeight = Math.round(1366 / (img.width / img.height));
-              break;
-            case "large":
-              newWidth = 1920;
-              newHeight = Math.round(1920 / (img.width / img.height));
-              break;
-            case "xlarge":
-              newWidth = 2560;
-              newHeight = Math.round(2560 / (img.width / img.height));
-              break;
-            case "mobile":
-              newWidth = 320;
-              newHeight = Math.round(320 / (img.width / img.height));
-              break;
-            default:
-              newWidth = img.width;
-              newHeight = img.height;
-              break;
-          }
-        }
 
-        canvas.width = newWidth;
-        canvas.height = newHeight;
-        ctx.drawImage(img, 0, 0, newWidth, newHeight);
+          canvas.width = newWidth;
+          canvas.height = newHeight;
+          ctx.drawImage(img, 0, 0, newWidth, newHeight);
 
-        // Calculate the size in KB
-        const quality = parseFloat(
-          document.getElementById("qualitySlider").value
-        );
-        const imageDataUrl = canvas.toDataURL("image/jpeg", quality);
-        const imageData = atob(imageDataUrl.split(",")[1]);
-        const imageSizeKB = (imageData.length / 1024).toFixed(2);
+          const quality = parseFloat(document.getElementById("qualitySlider").value);
+          const imageDataUrl = canvas.toDataURL("image/jpeg", quality);
+          const imageData = atob(imageDataUrl.split(",")[1]);
+          const imageSizeKB = (imageData.length / 1024).toFixed(2);
 
-        // Calculate compression ratio based on original and new sizes
-        const originalSizeKB = (file.size / 1024).toFixed(2);
-        const compressionRatio = (
-          (1 - imageSizeKB / originalSizeKB) *
-          100
-        ).toFixed(2);
+          const originalSizeKB = (file.size / 1024).toFixed(2);
+          const compressionRatio = ((1 - imageSizeKB / originalSizeKB) * 100).toFixed(2);
 
-        // Create a new table row with the image details
-        const tableRow = document.createElement("tr");
-        tableRow.innerHTML = `
-          <td>${file.name}</td>
-          <td>${selectedSize}</td>
-          <td>${newWidth}</td>
-          <td>${newHeight}</td>
-          <td>${originalSizeKB}</td>
-          <td>${imageSizeKB}</td>
-          <td>${compressionRatio}%</td>
-        `;
-        document.querySelector("#image-table tbody").appendChild(tableRow);
+          const tableRow = document.createElement("tr");
+          tableRow.innerHTML = `
+            <td>${file.name}</td>
+            <td>${selectedSize}</td>
+            <td>${newWidth}</td>
+            <td>${newHeight}</td>
+            <td>${originalSizeKB}</td>
+            <td>${imageSizeKB}</td>
+            <td>${compressionRatio}%</td>
+          `;
+          document.querySelector("#image-table tbody").appendChild(tableRow);
 
-        saveImage(imageDataUrl, file.name, quality); // Save the resized image
-      };
+          saveImage(imageDataUrl, file.name, quality);
+        };
     };
     reader.readAsDataURL(file);
   }
