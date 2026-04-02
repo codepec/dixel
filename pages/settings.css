@@ -1,115 +1,100 @@
+/* SETTINGS PAGE – NEXT LEVEL */
 
-.toggle-container input[type="checkbox"] {
-  display: none;
+.settings-wrapper {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-.toggle-container input[type="checkbox"] + label {
-  position: relative;
-  display: inline-block;
-  width: 50px;
-  height: 25px;
-  background-color: #888;
-  border-radius: 25px;
-  transition: background-color 0.3s ease;
-}
-
-.toggle-container input[type="checkbox"]:checked + label {
-  background-color: #4CAF50;
-}
-
-.toggle-container input[type="checkbox"] + label::after {
-  content: '';
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 21px;
-  height: 21px;
-  background-color: #fff;
-  border-radius: 50%;
-  transition: transform 0.3s ease;
-}
-
-.toggle-container input[type="checkbox"]:checked + label::after {
-  transform: translateX(25px);
-}
-
-.settings-container {
-  max-width: 600px;
-  margin: 20px auto;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-}
-
-.settings-section {
-  padding: 10px;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.settings-section:last-child {
-  border-bottom: none;
-}
-
+/* TITLE */
 .settings-title {
-  font-size: 24px;
-  font-weight: bold;
-  margin: 20px 20px 10px;
+  font-size: 22px;
+  font-weight: 600;
+  margin: 10px 0 20px;
+  padding-left: 4px;
 }
 
+/* CARD GROUP */
+.settings-container {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+
+/* EACH ROW */
 .settings-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
+  padding: 16px 18px;
+  font-size: 15px;
+  border-bottom: 1px solid #f1f5f9;
 }
 
-.settings-item select,
-.settings-item input[type="checkbox"] {
-  margin-left: 10px;
+.settings-item:last-child {
+  border-bottom: none;
 }
 
-.toggle-container {
-  display: flex;
-  align-items: center;
+/* LABEL TEXT */
+.settings-item label,
+.settings-item p {
+  color: #0f172a;
+  font-weight: 500;
 }
 
-.toggle-container p {
-  margin-right: 10px;
+/* SELECT */
+.settings-item select {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
 }
 
-.install-button {
-  display: block;
-  width: 200px;
-  height: 50px;
-  margin: 20px auto;
-  padding: 10px;
-  border: none;
-  border-radius: 25px;
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-
-
-
-.install-button::before {
-  content: attr(title);
-  position: absolute;
-  top: 120%; 
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
+/* 🔥 MODERN TOGGLE */
+.toggle-container input {
   display: none;
-  width: 300px; 
-  padding: 10px;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
-  border-radius: 5px;
-  text-align: center;
 }
 
-.install-button:hover::before {
-  display: block;
+.toggle-container label {
+  width: 44px;
+  height: 24px;
+  background: #e2e8f0;
+  border-radius: 999px;
+  position: relative;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.toggle-container label::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: white;
+  border-radius: 50%;
+  top: 3px;
+  left: 3px;
+  transition: 0.3s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.toggle-container input:checked + label {
+  background: #2563eb;
+}
+
+.toggle-container input:checked + label::after {
+  transform: translateX(20px);
+}
+
+/* HOVER FEEL */
+.settings-item:hover {
+  background: #f8fafc;
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+  .settings-wrapper {
+    padding: 16px;
+  }
 }

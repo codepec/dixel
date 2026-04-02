@@ -3,121 +3,133 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dixel by codepec</title>
+  <title>Dixel Settings</title>
 
-   <!-- Standard theme-color for light mode -->
-   <meta name="theme-color" content="#5599a1" media="(prefers-color-scheme: light)">
-   <!-- Theme-color for dark mode -->
-   <meta name="theme-color" content="#333" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#2563eb">
+
   <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="instructions.css">
   <link rel="stylesheet" href="settings.css">
-  <link rel="icon" type="image/png" sizes="192x192"  href="../assets/icons/ios/192.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/ios/32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="../assets/icons/ios/96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../assets/icons/ios/16.png">
-
-
-
-<!-- PNG icons for different sizes -->
-<link rel="icon" type="image/png" sizes="50x50" href="../assets/icons/ios/50.png">
-<link rel="icon" type="image/png" sizes="128x128" href="../assets/icons/ios/128.png">
-
-<!-- Apple Touch Icon -->
-<link rel="apple-touch-icon" sizes="192x192" href="../assets/icons/ios/192.png">
-
-  <link rel="manifest" href="../manifest.json" />
-
 </head>
+
 <body>
 
-
-
-
-
-
-
+  <!-- NAV -->
   <nav class="navbar">
-    <div class="navbar-left" >
-
-    </div>
-    <div class="navbar-right">
-
-      <select id="navDropdown" class="mobile-dropdown">
-        <option value="../index.html">Home</option>
-        <option value="./settings.html" selected>Settings</option>
-        <option value="./instructions.html">Get Started</option>
-      </select>
-  
-   <div class="desktop-menu">
-      <ul >
-
-        <li id="home"><a href="../index.html">Home</a></li>
-        <li id="settings"><a href="./settings.html">Settings</a></li>
-        <li id="instructions"><a href="./instructions.html">Get Started</a></li>
-      </ul>
-    </div>
-    </div>
+    <select id="navDropdown">
+      <option value="../index.html">Home</option>
+      <option value="./settings.html" selected>Settings</option>
+      <option value="./instructions.html">Get Started</option>
+    </select>
   </nav>
 
-
-
-
-
-  <div class="blocker"></div>
-  
-  <div class="header">
-    <div class="logo-container">
-      <img class="icon" src="../img/icon_trans.png" alt="logo">
-      <h1 id="title">Dixel - Size it right</h1>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">
+      <img src="../img/icon_trans.png" alt="">
+      <h1>Dixel</h1>
     </div>
-    <p>&copy by codepec</p>
-  </div>
+    <p>Resize images instantly</p>
+  </header>
 
+  <!-- SETTINGS -->
+  <div class="settings-wrapper">
 
-  <h2 class="settings-title">Settings</h2>
-  <div class="settings-container">
-    <div class="settings-section">
+    <h2 class="settings-title">Settings</h2>
+
+    <div class="settings-container">
+
+      <!-- LANGUAGE -->
       <div class="settings-item">
-        <label for="languageSelect">Select your Language:</label>
-        <select id="languageSelect" onchange="changeLanguage()">
+        <label>Language</label>
+        <select id="languageSelect">
           <option value="en">English</option>
           <option value="de">Deutsch</option>
         </select>
       </div>
-    </div>
 
-    <div class="settings-section">
+      <!-- DARK MODE -->
       <div class="settings-item toggle-container">
-        <p>Dark Mode:</p>
-        <input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()">
+        <p>Dark Mode</p>
+        <input type="checkbox" id="darkModeToggle">
         <label for="darkModeToggle"></label>
       </div>
-    </div>
 
-    <div class="settings-section">
+      <!-- OFFLINE MODE -->
       <div class="settings-item toggle-container">
-        <p>Offline Mode:</p>
-        <input type="checkbox" id="offlineModeToggle" onchange="toggleOfflineMode()">
+        <p>Offline Mode</p>
+        <input type="checkbox" id="offlineModeToggle">
         <label for="offlineModeToggle"></label>
       </div>
+
     </div>
 
-</div>
+  </div>
+      <footer>
+      <a href="imprint.html">Imprint</a> |
+      <a href="privacy.html">Privacy Policy</a>
+    </footer>
 
-  <script src="../js/darkmode.js"></script>
+
+  <!-- EXISTING SCRIPTS -->
+
   <script src="../js/offline.js"></script>
-  <script src="../js/lang_settings.js"></script>
-  <script src="../js/lang_nav.js"></script>
 
-  <script>
-    document.getElementById("navDropdown").addEventListener("change", function (event) {
-      var selectedOption = event.target.value;
-      window.location.href = selectedOption;
+
+  <!-- 🔥 CORE LOGIC (NEU & STABIL) -->
+ <script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const darkToggle = document.getElementById("darkModeToggle");
+  const offlineToggle = document.getElementById("offlineModeToggle");
+  const languageSelect = document.getElementById("languageSelect");
+  const nav = document.getElementById("navDropdown");
+
+  // NAV
+  if (nav) {
+    nav.addEventListener("change", function () {
+      window.location.href = this.value;
     });
-  </script>
+  }
 
+  // LOAD SETTINGS
+  const darkMode = localStorage.getItem("darkMode") === "true";
+  document.body.classList.toggle("dark-mode", darkMode);
+  if (darkToggle) darkToggle.checked = darkMode;
 
+  const offlineMode = localStorage.getItem("offlineMode") === "true";
+  if (offlineToggle) offlineToggle.checked = offlineMode;
+
+  const lang = localStorage.getItem("language") || "en";
+  if (languageSelect) languageSelect.value = lang;
+
+  // EVENTS
+  if (darkToggle) {
+    darkToggle.addEventListener("change", () => {
+      const enabled = darkToggle.checked;
+      document.body.classList.toggle("dark-mode", enabled);
+      localStorage.setItem("darkMode", enabled);
+    });
+  }
+
+  if (offlineToggle) {
+    offlineToggle.addEventListener("change", () => {
+      localStorage.setItem("offlineMode", offlineToggle.checked);
+    });
+  }
+
+  if (languageSelect) {
+    languageSelect.addEventListener("change", () => {
+      const lang = languageSelect.value;
+      localStorage.setItem("language", lang);
+
+      if (typeof changeLanguage === "function") {
+        changeLanguage();
+      }
+    });
+  }
+
+});
+</script>
 
 </body>
 </html>

@@ -3,175 +3,163 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dixel by codepec</title>
-  
- <!-- Standard theme-color for light mode -->
- <meta name="theme-color" content="#5599a1" media="(prefers-color-scheme: light)">
- <!-- Theme-color for dark mode -->
- <meta name="theme-color" content="#333" media="(prefers-color-scheme: dark)">
+  <title>Dixel</title>
 
+  <!-- Styles -->
   <link rel="stylesheet" href="./css/style.css">
 
-  <link rel="icon" type="image/png" sizes="192x192"  href="./assets/icons/ios/192.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/ios/32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="./assets/icons/ios/96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="./assets/icons/ios/16.png">
+  <!-- Theme -->
+  <meta name="theme-color" content="#2563eb">
 
-
-
-<!-- PNG icons for different sizes -->
-<link rel="icon" type="image/png" sizes="50x50" href="./assets/icons/ios/50.png">
-<link rel="icon" type="image/png" sizes="128x128" href="./assets/icons/ios/128.png">
-
-<!-- Apple Touch Icon -->
-<link rel="apple-touch-icon" sizes="192x192" href="./assets/icons/ios/192.png">
-
-
-
-
-
-  <link rel="manifest" href="manifest.json" />
-
+  <script>
+  // APPLY DARK MODE BEFORE PAGE LOAD (no flicker)
+  if (localStorage.getItem("darkMode") === "true") {
+    document.documentElement.classList.add("dark-mode");
+  }
+</script>
 </head>
+
 <body>
 
+  <!-- NAV -->
   <nav class="navbar">
-    <div class="navbar-left" style="display: none">
-      <label for="languageSelect" ></label>
-      <select id="languageSelect" onchange="changeLanguage()">
-        <option value="en">English</option>
-        <option value="de">Deutsch</option>
-      </select>
-    </div>
-    <div class="navbar-right">
-
-      <select id="navDropdown" class="mobile-dropdown">
-        <option value="./index" selected>Home</option>
-        <option value="./pages/settings.html">Settings</option>
-        <option value="./pages/instructions.html">Get Started</option>
-      </select>
-  
-   <div class="desktop-menu">
-      <ul >
-        <li>
-          <div class="darkmode-container" style="display: none">
-            <p class="margin-right">Dark Mode</p>
-            <input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()">
-            <label for="darkModeToggle"></label>
-          </div>
-        </li>
-        <li id="home"><a href="#">Home</a></li>
-        <li id="settings"><a href="./pages/settings.html">Settings</a></li>
-        <li id="instructions"><a href="./pages/instructions.html">Get Started</a></li>
-      </ul>
-    </div>
-    </div>
+    <select id="navDropdown">
+      <option value="./index" selected>Home</option>
+      <option value="./pages/settings.html">Settings</option>
+      <option value="./pages/instructions.html">Get Started</option>
+    </select>
   </nav>
 
-  <div class="blocker"></div>
-  
-  <div class="header">
-    <div class="logo-container">
-      <img class="icon" src="./img/icon_trans.png" alt="logo">
-      <h1 id="title">Dixel - Size it right</h1>
-
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">
+      <img src="./img/icon_trans.png" alt="">
+      <h1>Dixel</h1>
     </div>
-    <p>&copy by codepec</p>
-  </div>
+    <p>Resize images instantly</p>
+  </header>
 
+  <main class="container">
 
-      <h2 id="chooseFilename">Rename</h2>
-      <div id="rename-container">
-        <label for="newFileName"></label>
-        <input type="text" id="newFileName" placeholder="Insert new filename">
+    <!-- DROP AREA -->
+    <section class="card">
+      <h2>Upload</h2>
+      <div id="drop-area"
+           ondrop="dropHandler(event);"
+           ondragover="dragOverHandler(event);"
+           ondragleave="dragLeaveHandler(event);">
+
+        <p class="drop-title">Drop image here</p>
+        <p class="drop-sub">or click to upload</p>
+
+        <a href="#" id="fileSelect">browse</a>
+        <input type="file" id="fileElem" multiple accept="image/*" style="display:none;">
       </div>
-      
+    </section>
 
+    <!-- SIZE -->
+    <section class="card">
+      <h2>Size</h2>
+      <div class="radio-group">
 
-        <h2 id="chooseSize">Choose Image Size</h2>
-        <div class="radio-group">
-            <input type="radio" id="small" name="size" value="small">
-            <label for="small" id="labelSmall">Small</label>
-            <input type="radio" id="medium" name="size" value="medium">
-            <label for="medium" id="labelMedium">Medium</label>
-            <input type="radio" id="large" name="size" value="large" checked>
-            <label for="large" id="labelLarge">Large</label>
-            <input type="radio" id="xlarge" name="size" value="xlarge">
-            <label for="xlarge" id="labelXlarge">XXL</label>
-            <input type="radio" id="mobile" name="size" value="mobile">
-            <label for="mobile" id="labelMobile">Mobile</label>
-            <input type="radio" id="custom" name="size" value="custom">
-            <label for="custom" id="labelCustom">Custom</label>
-        </div>
+        <input type="radio" id="small" name="size" value="small">
+        <label for="small">Small</label>
 
-        <div class="customSize">
-          <div class="custom-size-container" id="customSizeContainer" style="display: none;">
-            <h2 id="manualInput">Manual Input</h2>  
-            <input type="text" id="width" name="width" placeholder="Width in pixels">
-              <input type="text" id="height" name="height" placeholder="Height in pixels">
-          </div>
-        </div>
+        <input type="radio" id="medium" name="size" value="medium">
+        <label for="medium">Medium</label>
 
+        <input type="radio" id="large" name="size" value="large" checked>
+        <label for="large">Large</label>
 
-        <h2 id="chooseQuality">Choose Image Quality</h2>
-        <div class="quality-slider-container">
-          <input type="range" id="qualitySlider" name="quality" min="0.5" max="1.0" step="0.1" value="0.9">
-          <label for="qualitySlider" id="qualityValue">90%</label>
-        </div>
-      
+        <input type="radio" id="xlarge" name="size" value="xlarge">
+        <label for="xlarge">XXL</label>
 
-        <div>
+        <input type="radio" id="mobile" name="size" value="mobile">
+        <label for="mobile">Mobile</label>
 
-  
-          <div id="drop-area" class="empty-area" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);" ondragleave="dragLeaveHandler(event);" dropzone>
-            <div>
-              <h2 id="dropAreaText">Drop Images Here</h2><br>
-              <a href="#" id="fileSelect">browse</a><input type="file" id="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)" style="display:none;">
-            </div>
-          </div>
+        <input type="radio" id="custom" name="size" value="custom">
+        <label for="custom">Custom</label>
+      </div>
 
-        </div>
+      <!-- CUSTOM SIZE -->
+      <div id="customSizeContainer" style="display:none;">
+        <input type="text" id="width" placeholder="Width">
+        <input type="text" id="height" placeholder="Height">
+      </div>
+    </section>
 
-        <div id="progress-container" style="display: none;">
-            <div id="progress-bar"></div>
-        </div>
+    <!-- QUALITY -->
+    <section class="card">
+      <h2>Quality</h2>
+      <div class="slider">
+        <span>Low</span>
+        <input type="range" id="qualitySlider" min="0.5" max="1.0" step="0.1" value="0.9">
+        <span>High</span>
+        <span id="qualityValue">90%</span>
+      </div>
+    </section>
 
-        <div>
-            <h2 id="resizedImages">Resized Images</h2>
-            <table id="image-table">
-              <thead>
-                <tr>
-                  <th id="th-name">Name</th>
-                  <th id="th-selected-size">Selected Size</th>
-                  <th id="th-width">Width</th>
-                  <th id="th-height">Height</th>
-                  <th id="th-original-size">Original Size (KB)</th>
-                  <th id="th-new-size">New Size (KB)</th>
-                  <th id="th-compression">Compression</th>
-                </tr>
-              </thead>
-              <tbody>
-                <!-- Table rows will be inserted here -->
-              </tbody>
-            </table>
-        </div>
+    <!-- RENAME -->
+    <section class="card">
+      <h2>Filename (optional)</h2>
+      <input type="text" id="newFileName" placeholder="my_image.jpg">
+    </section>
 
-        <a id="downloadLink" style="display: none"></a> <!-- Hidden download link -->
+    <!-- PROGRESS -->
+    <div id="progress-container" style="display:none;">
+      <div id="progress-bar"></div>
+    </div>
 
+    <!-- RESULT TABLE -->
+    <section>
+      <h2 id="resizedImages">Resized Images</h2>
+      <table id="image-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Size</th>
+            <th>Width</th>
+            <th>Height</th>
+            <th>Original (KB)</th>
+            <th>New (KB)</th>
+            <th>Compression</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
 
-        <script src="./js/script.js"></script>
-        <script src="./js/darkmode.js" defer></script>
-        <script src="./js/main.js"></script>
-        <script src="./js/lang_index.js"></script>
-        <script src="./js/lang_nav.js"></script>
+    <footer>
+      <a href="./pages/imprint.html">Imprint</a> |
+      <a href="./pages/privacy.html">Privacy Policy</a>
+    </footer>
 
-        <script>
-          document.getElementById("navDropdown").addEventListener("change", function () {
-            var selectedOption = this.value;
-            window.location.href = selectedOption;
-          });
-      
-        </script>
+  </main>
+
+  <!-- Hidden download -->
+  <a id="downloadLink" style="display:none"></a>
+
+  <!-- 🔥 SCRIPTS (ALLE WIEDER DRIN) -->
+  <script src="./js/script.js"></script>
+  <script src="./js/main.js"></script>
+ 
+
+  <!-- NAV DROPDOWN -->
+  <script>
+    document.getElementById("navDropdown").addEventListener("change", function () {
+      window.location.href = this.value;
+    });
+
+    // File select click
+    document.getElementById("fileSelect").onclick = function (e) {
+      e.preventDefault();
+      document.getElementById("fileElem").click();
+    };
+
+    document.getElementById("fileElem").addEventListener("change", function () {
+      handleFiles(this.files);
+    });
+  </script>
 
 </body>
 </html>

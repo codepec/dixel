@@ -1,69 +1,90 @@
-
-.instructions-container {
+.instructions-wrapper {
   max-width: 600px;
   margin: 20px auto;
-
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
   padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border: 1px solid #e2e8f0;
 }
 
-
-#instructions-de {
-  display: none;
+/* TITLES */
+.section-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 15px 0 10px;
+  color: #0f172a;
 }
 
-
-#instructions-en {
-  display: block;
+/* INTRO TEXT */
+.section-intro {
+  margin-bottom: 15px;
+  color: #334155;
+  font-size: 15px;
 }
 
-
-.instruction-heading,
-.tip-heading,
-.support-heading {
-  font-size: 24px;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-
-.instruction-intro {
+/* STEPS LIST */
+.steps-list {
+  list-style-type: decimal;
+  margin-left: 20px;
   margin-bottom: 20px;
 }
 
-
-.instruction-steps {
-  list-style-type: decimal;
-  margin-left: 20px;
-  text-align: left;
-}
-
-
-.instruction-step {
+.steps-list li {
   margin-bottom: 10px;
 }
 
+/* SUB-STEPS */
+.sub-steps {
+  list-style-type: circle;
+  margin-left: 20px;
+  margin-top: 5px;
+}
 
+.sub-steps li {
+  margin-bottom: 6px;
+}
+
+/* TIPS LIST */
 .tips-list {
   list-style-type: disc;
   margin-left: 20px;
-  text-align: left;
+  margin-bottom: 20px;
 }
 
-
-.tip {
-  margin-bottom: 10px;
+.tips-list li {
+  margin-bottom: 8px;
 }
 
-
-.support-info {
-  margin-top: 20px;
-}
-
-
+/* SUPPORT LINK */
 .support-link {
-  color: #007bff; 
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.support-link:hover {
+  text-decoration: underline;
+}
+
+/* DARK MODE SUPPORT */
+body.dark-mode .instructions-wrapper {
+  background: #1e293b;
+  color: #f1f5f9;
+  border-color: #334155;
+}
+
+body.dark-mode .section-title,
+body.dark-mode .tips-list li,
+body.dark-mode .steps-list li {
+  color: #f1f5f9;
+}
+
+body.dark-mode .support-link {
+  color: #60a5fa;
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+  .instructions-wrapper {
+    padding: 16px;
+  }
 }

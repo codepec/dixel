@@ -3,161 +3,120 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dixel by codepec</title>
+  <title>Dixel Instructions</title>
 
-   <!-- Standard theme-color for light mode -->
-   <meta name="theme-color" content="#5599a1" media="(prefers-color-scheme: light)">
-   <!-- Theme-color for dark mode -->
-   <meta name="theme-color" content="#333" media="(prefers-color-scheme: dark)">
+  <!-- Theme Colors -->
+  <meta name="theme-color" content="#5599a1" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#333" media="(prefers-color-scheme: dark)">
+
+  <!-- Styles -->
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="instructions.css">
-  <link rel="stylesheet" href="settings.css">
   <link rel="icon" type="image/png" sizes="192x192"  href="./assets/icons/ios/192.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/ios/32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="./assets/icons/ios/96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="./assets/icons/ios/16.png">
 
-
-
-<!-- PNG icons for different sizes -->
-<link rel="icon" type="image/png" sizes="50x50" href="./assets/icons/ios/50.png">
-<link rel="icon" type="image/png" sizes="128x128" href="./assets/icons/ios/128.png">
-
-<!-- Apple Touch Icon -->
-<link rel="apple-touch-icon" sizes="192x192" href="./assets/icons/ios/192.png">
-
-  <link rel="manifest" href="../manifest.json" />
+  <script>
+  // APPLY DARK MODE BEFORE PAGE LOAD (no flicker)
+  if (localStorage.getItem("darkMode") === "true") {
+    document.documentElement.classList.add("dark-mode");
+  }
+</script>
 
 </head>
 <body>
 
-
-
-
+  <!-- NAV -->
   <nav class="navbar">
-    <div class="navbar-left" style="display: none">
-      <label for="languageSelect" ></label>
-      <select id="languageSelect" onchange="changeLanguage()">
-        <option value="en">English</option>
-        <option value="de">Deutsch</option>
-      </select>
-    </div>
-    <div class="navbar-right">
-
-      <select id="navDropdown" class="mobile-dropdown">
-        <option value="../index.html">Home</option>
-        <option value="./settings.html">Settings</option>
-        <option value="./instructions.html" selected>Get Started</option>
-      </select>
-  
-   <div class="desktop-menu">
-      <ul >
-        <li>
-          <div class="darkmode-container" style="display: none">
-            <p class="margin-right">Dark Mode</p>
-            <input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()">
-            <label for="darkModeToggle"></label>
-          </div>
-        </li>
-        <li id="home"><a href="../index.html">Home</a></li>
-        <li id="settings"><a href="./settings.html">Settings</a></li>
-        <li id="instructions"><a href="./instructions.html">Get Started</a></li>
-      </ul>
-    </div>
-    </div>
+    <select id="navDropdown" class="mobile-dropdown">
+      <option value="../index.html">Home</option>
+      <option value="./settings.html">Settings</option>
+      <option value="./instructions.html" selected>Get Started</option>
+    </select>
   </nav>
 
-
-
-
-
-  <div class="blocker"></div>
-  
-  <div class="header">
-    <div class="logo-container">
-      <img class="icon" src="../img/icon_trans.png" alt="logo">
-      <h1 id="title">Dixel - Size it right</h1>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">
+      <img src="../img/icon_trans.png" alt="logo">
+      <h1>Dixel</h1>
     </div>
-    <p>&copy by codepec</p>
+    <p>Resize images instantly</p>
+  </header>
+
+  <!-- INSTRUCTIONS -->
+  <div class="instructions-wrapper">
+
+    <!-- GERMAN -->
+    <div id="instructions-de" style="display: none;">
+      <h2 class="section-title">So geht's:</h2>
+      <p class="section-intro">Möchten Sie Ihre Bilder verkleinern? Hier ist, wie es funktioniert:</p>
+      <ol class="steps-list">
+        <li>Öffnen Sie die App oder die Webseite.</li>
+        <li>Wählen Sie Ihre Größe: Klein oder Mittel.</li>
+        <li>Fügen Sie Ihre Bilder hinzu:
+          <ul class="sub-steps">
+            <li>Klicken Sie auf "Bilder auswählen" und wählen Sie Ihre Bilder aus.</li>
+            <li>Oder ziehen Sie sie einfach per Drag & Drop hinein.</li>
+          </ul>
+        </li>
+        <li>Warten Sie, bis alles verkleinert ist und prüfen Sie Ihren Download-Ordner.</li>
+      </ol>
+
+      <h2 class="section-title">Tipps:</h2>
+      <ul class="tips-list">
+        <li>Wählen Sie die Größe je nach Bedarf: Klein für Social Media, Mittel für beste Qualität.</li>
+        <li>Stellen Sie sicher, dass Ihre Bilder im JPG- oder PNG-Format vorliegen.</li>
+        <li>Seien Sie geduldig und unterbrechen Sie den Vorgang nicht.</li>
+        <li>Prüfen Sie die Downloads, bei Bedarf einfach erneut versuchen.</li>
+      </ul>
+
+      <h2 class="section-title">Support:</h2>
+      <p>Bei Fragen schreiben Sie uns: <a href="mailto:codepec.de@gmail.com" class="support-link">Schreib uns</a></p>
+    </div>
+
+    <!-- ENGLISH -->
+    <div id="instructions-en" style="display: block;">
+      <h2 class="section-title">Here's How:</h2>
+      <p class="section-intro">Want to resize your images? Here's how it works:</p>
+      <ol class="steps-list">
+        <li>Open the app or website.</li>
+        <li>Choose your size: Small or Medium.</li>
+        <li>Add your images:
+          <ul class="sub-steps">
+            <li>Click "Select Images" and choose your images.</li>
+            <li>Or drag & drop them in.</li>
+          </ul>
+        </li>
+        <li>Wait until everything is resized and check your downloads.</li>
+      </ol>
+
+      <h2 class="section-title">Tips:</h2>
+      <ul class="tips-list">
+        <li>Choose the size according to your needs: Small for social media, Medium for best quality.</li>
+        <li>Make sure your images are in JPG or PNG format.</li>
+        <li>Be patient and don't interrupt the process.</li>
+        <li>Check your downloads, try again if needed.</li>
+      </ul>
+
+      <h2 class="section-title">Support:</h2>
+      <p>For questions, email us: <a href="mailto:codepec.de@gmail.com" class="support-link">Contact Us</a></p>
+    </div>
+
   </div>
 
 
+        <footer>
+      <a href="imprint.html">Imprint</a> |
+      <a href="privacy.html">Privacy Policy</a>
+    </footer>
+
+  <!-- SCRIPTS -->
+  <script src="../js/offline.js"></script>
 
 
-  <div class="instructions-container">
-
-
-
-
-<div id="instructions-de" style="display: none;">
-
-  <h2 class="instruction-heading">So geht's:</h2>
-  <p class="instruction-intro">Möchten Sie Ihre Bilder verkleinern? Hier ist, wie es funktioniert:</p>
-  <ol class="instruction-steps">
-    <li class="instruction-step">Öffnen Sie die App oder die Webseite.</li>
-    <li class="instruction-step">Wählen Sie Ihre Größe: Klein oder Mittel.</li>
-    <li class="instruction-step">Fügen Sie Ihre Bilder hinzu:
-      <div class="sub-steps">
-        <div class="sub-step">Klicken Sie auf "Bilder auswählen" und wählen Sie Ihre Bilder aus.</div>
-        <div class="sub-step">Oder ziehen Sie sie einfach per Drag & Drop hinein.</div>
-      </div>
-    </li>
-    <li class="instruction-step">Warten Sie geduldig, bis alles verkleinert ist. Überprüfen Sie dann Ihren Download-Ordner.</li>
-  </ol>
-
-  <h2 class="tip-heading">Tipps:</h2>
-  <ul class="tips-list">
-    <li class="tip">Wählen Sie die Größe entsprechend Ihrem Bedarf: Klein für soziale Medien, Mittel für beste Qualität.</li>
-    <li class="tip">Stellen Sie sicher, dass Ihre Bilder im JPG- oder PNG-Format vorliegen, damit alles reibungslos funktioniert.</li>
-    <li class="tip">Seien Sie geduldig und unterbrechen Sie den Vorgang nicht. Warten Sie einfach, bis alles bereit ist.</li>
-    <li class="tip">Überprüfen Sie die Downloads, um sicherzustellen, dass sie passend sind. Falls nicht, versuchen Sie es einfach erneut.</li>
-  </ul>
-
-  <h2 class="support-heading">Support:</h2>
-  <p class="support-info">Bei Fragen oder Problemen können Sie uns gerne eine E-Mail schreiben: <a href="mailto:codepec.de@gmail.com" class="support-link">Schreib uns</a>. Wir sind hier, um zu helfen!</p>
-</div>
-
-
-
-<div id="instructions-en" style="display: none;">
-
-  <h2 class="instruction-heading">Here's How:</h2>
-  <p class="instruction-intro">Want to resize your images? Here's how it works:</p>
-  <ol class="instruction-steps">
-    <li class="instruction-step">Open the app or website.</li>
-    <li class="instruction-step">Choose your size: Small or Medium.</li>
-    <li class="instruction-step">Add your images:
-      <div class="sub-steps">
-        <div class="sub-step">Click "Select Images" and choose your images.</div>
-        <div class="sub-step">Or simply drag and drop them in.</div>
-      </div>
-    </li>
-    <li class="instruction-step">Wait patiently until everything is resized. Then, check your download folder.</li>
-  </ol>
-
-  <h2 class="tip-heading">Tips:</h2>
-  <ul class="tips-list">
-    <li class="tip">Choose the size according to your needs: Small for social media, Medium for best quality.</li>
-    <li class="tip">Make sure your images are in JPG or PNG format for smooth operation.</li>
-    <li class="tip">Be patient and don't interrupt the process. Just wait until everything is ready.</li>
-    <li class="tip">Check the downloads to ensure they fit. If not, simply try again.</li>
-  </ul>
-
-  <h2 class="support-heading">Support:</h2>
-  <p class="support-info">For questions or issues, feel free to send us an email: <a href="mailto:codepec.de@gmail.com" class="support-link">Contact Us</a>. We're here to help!</p>
-</div>
-
-
-
-  <script src="../js/darkmode.js"></script>
   <script>
     document.getElementById("navDropdown").addEventListener("change", function () {
-      var selectedOption = this.value;
-      window.location.href = selectedOption;
+      window.location.href = this.value;
     });
   </script>
-  <script src="../js/offline.js"></script>
-  <script src="../js/lang_instructions.js"></script>
-  <script src="../js/lang_nav.js"></script>
 </body>
 </html>
