@@ -46,4 +46,19 @@ We welcome contributions to enhance Dixel. To contribute:
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/codepec/dixel/blob/main/LICENSE.txt) file for details.
+This project is licensed under a Non-Commercial License.
+
+You are allowed to:
+Use, modify, and share the software for personal and non-commercial purposes
+
+You are not allowed to:
+Use the software for commercial purposes
+Sell or redistribute it commercially without permission
+
+See the full license in the [LICENSE](https://github.com/codepec/dixel/blob/main/LICENSE.txt) file.
+
+## Third-Party Libraries
+JSZip (MIT License)
+[JSZip](https://stuk.github.io/jszip/)
+
+
