@@ -158,8 +158,8 @@ input[type="text"] {
 }
 
 /* CTA */
-.cta {
-  width: 100%;
+.actionBtn {
+  margin-bottom:15px;
   padding: 14px;
   border-radius: 14px;
   border: none;
@@ -168,9 +168,10 @@ input[type="text"] {
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
+  
 }
 
-.cta:hover {
+.actionBtn:hover {
   background: #1d4ed8;
 }
 
@@ -299,3 +300,26 @@ th{
   padding: 12px;
   font-size: small;
 }
+
+    /* Progress bar container */
+    #progress-container {
+      width: 100%;
+      background-color: #e0e0e0;
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 1rem 0;
+      height: 24px;
+      display: none;
+    }
+
+    /* Progress bar fill */
+    #progress-bar {
+      height: 100%;
+      width: 0%;
+      background-color: #2563eb;
+      text-align: center;
+      color: white;
+      line-height: 24px;
+      font-weight: bold;
+      transition: width 0.2s ease;
+    }
